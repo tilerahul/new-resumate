@@ -1,0 +1,1 @@
+export const BASEURL = 'https://resumate-server.onrender.com/';
