@@ -132,12 +132,12 @@ function Navbar() {
             </li>
             <li><NavLink className="text-md text-black hover:text-gray-500" to="contact">Contact</NavLink></li>
           </ul>
-          {!true && <div>
+          {true && <div>
             <Link to="/login" className="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200 text-decoration-none">Sign In</Link>
             <Link to="/CreateAccount" className="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200 text-decoration-none">Sign up</Link>
           </div>}
 
-          {true && <div className=' flex items-center gap-2 font-medium relative'>
+          {false && <div className=' flex items-center gap-2 font-medium relative'>
             {/* <p>{`${state.user.firstName} ${state.user.lastName}`}</p> */}
             {/* <img src={state.user.imgUrl} className='rounded-full w-[35px]' alt="img" /> */}
             <div className='cursor-pointer'>
