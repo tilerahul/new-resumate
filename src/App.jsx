@@ -15,6 +15,7 @@ import Blog from './components/Resume/Blog/Blog';
 import CraftingBlog from './components/Resume/Blog/CraftingBlog';
 import TailorResume from './components/Resume/Blog/TailorResume';
 import ScrollToTop from './components/Resume/Section/ScrollToTop';
+import PageNotFound from './components/PageNotFound';
 function App() {
   return (
       <Router>
@@ -34,6 +35,7 @@ function App() {
           <Route path="/resume" element={<Resume />} />
           <Route path="/resume/project" element={<Project />} />
           <Route path="/featurepath" element={<Feature />} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
         <Footer/>
       </Router>
