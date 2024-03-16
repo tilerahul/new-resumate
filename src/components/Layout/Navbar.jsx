@@ -1,17 +1,23 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
-import {useAuth} from "../../../Reducers/Authentication/AuthContext"
 import toast from 'react-hot-toast';
 import { FaUser } from "react-icons/fa";
 import { RiLogoutBoxRFill } from "react-icons/ri";
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '../../Store/slices/loginSlice';
 
 function Navbar() {
-  // const { logout } = useAuth();
+  const isLoggedIn = useSelector(state => state.login.isLoggedIn);
+  const user = useSelector(state => state.login.user);
+  console.log("user : ", user);
+  
   const [dropDown, setDropDown] = useState(false);
   const navigate = useNavigate();
 
   const dropDownRef = useRef();
+
+  const dispatch = useDispatch();
 
   useEffect(()=>{
     const handleClickOutside = (event) => {
@@ -27,7 +33,7 @@ function Navbar() {
   }, [])
 
   const logoutHandler = () => {
-    logout();
+    dispatch(logout());
     toast.success("Successfully Logout");
     navigate('/');
 
@@ -132,14 +138,14 @@ function Navbar() {
             </li>
             <li><NavLink className="text-md text-black hover:text-gray-500" to="contact">Contact</NavLink></li>
           </ul>
-          {true && <div>
+          {!isLoggedIn && <div>
             <Link to="/login" className="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200 text-decoration-none">Sign In</Link>
             <Link to="/CreateAccount" className="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200 text-decoration-none">Sign up</Link>
           </div>}
 
-          {false && <div className=' flex items-center gap-2 font-medium relative'>
-            {/* <p>{`${state.user.firstName} ${state.user.lastName}`}</p> */}
-            {/* <img src={state.user.imgUrl} className='rounded-full w-[35px]' alt="img" /> */}
+          {isLoggedIn && <div className=' flex items-center gap-2 font-medium relative'>
+            <p>{`${user.firstName} ${user.lastName}`}</p>
+            <img src={user.imgUrl} className='rounded-full w-[35px]' alt="img" />
             <div className='cursor-pointer'>
               {dropDown ? (<IoMdArrowDropup onClick={() => { setDropDown(!dropDown) }} />) :
                 (<IoMdArrowDropdown onClick={() => { setDropDown(!dropDown) }} />)
@@ -203,7 +209,7 @@ function Navbar() {
               </ul>
             </div>
             <div className="mt-auto">
-              {true && <div className="pt-6">
+              {isLoggedIn && <div className="pt-6">
                 <Link to="/login" className="block px-4 py-3 mb-3 text-xs text-center font-semibold leading-none bg-gray-50 hover:bg-gray-100 rounded-xl text-decoration-none">Sign in</Link>
                 <Link to="/CreateAccount" className="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-blue-600 hover:bg-blue-700  rounded-xl text-decoration-none">Sign Up</Link>
               </div>}

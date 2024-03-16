@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
-import { useAuth } from '../../Reducers/Authentication/AuthContext';
+import {useDispatch } from 'react-redux';
+import {login} from "../Store/slices/loginSlice"
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { BASEURL } from './BASEURL';
 
 function Login() {
-  const { login } = useAuth();
+  const dispatch = useDispatch();
   const [user, setUser] = useState({
     email: "",
     password: ""
@@ -25,7 +26,7 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await fetch(`${BASEURL}api/v1/auth/login`, {
+      const response = await fetch(`https://resumate-server.onrender.com/api/v1/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -34,9 +35,10 @@ function Login() {
       });
 
       const data = await response.json();
+      console.log(data.user)
 
       if (response.ok) {
-        login(data.token, data.user);
+        dispatch(login(data.user))
         toast.success(data.message);
         navigate('/');
       } else {
