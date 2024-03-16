@@ -10,7 +10,6 @@ import { logout } from '../../Store/slices/loginSlice';
 function Navbar() {
   const isLoggedIn = useSelector(state => state.login.isLoggedIn);
   const user = useSelector(state => state.login.user);
-  console.log("user : ", user);
   
   const [dropDown, setDropDown] = useState(false);
   const navigate = useNavigate();
