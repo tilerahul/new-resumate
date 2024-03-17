@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { useAuth } from '../../Reducers/Authentication/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import { useSelector } from 'react-redux';
 
 function Contact() {
-  const { state } = useAuth();
+  const isLoggedIn = useSelector(state => state.login.isLoggedIn);
+  const user = useSelector(state => state.login.user);
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     firstName: "",
@@ -14,17 +16,17 @@ function Contact() {
   });
 
   useEffect(() => {
-    if (state.isAuthenticated) {
+    if (isLoggedIn) {
       setFormData({
-        firstName: state.user.firstName,
-        lastName: state.user.lastName,
-        email: state.user.email
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email
       })
     } else {
       toast.error('Please login first');
       navigate('/login');
     }
-  }, [state]);
+  }, [isLoggedIn]);
 
   const changeHandler = (e) => {
     setFormData({

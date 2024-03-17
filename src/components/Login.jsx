@@ -29,25 +29,26 @@ function Login() {
 
     try {
       setLoading(true);
-      const response = await fetch(`https://resumate-server.onrender.com/api/v1/auth/login`, {
+      const response = await fetch(`${BASEURL}api/v1/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(user)
       });
+      setLoading(false);
 
       const data = await response.json();
 
       if (response.ok) {
+        toast.success("Login Successful !!");
         dispatch(login(data.user))
-        toast.success(data.message);
         navigate('/');
       } else {
         toast.error(data.message);
       }
-      setLoading(false);
     } catch (error) {
+      setLoading(false);
       console.log(error);
       toast.error('Something went wrong');
     }

@@ -10,17 +10,17 @@ import Skills from './Section/Skills'
 import WorkExperience from './Section/WorkExperience'
 import ResumePreview from "./ResumePreview";
 import { AppContext } from "../../Context/appContext";
-import { useAuth } from "../../../Reducers/Authentication/AuthContext";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import { useSelector } from "react-redux";
 
 const Resume = () => {
   const { section, setSection } = useContext(AppContext);
   const navigate = useNavigate();
-  const {isAuthenticated} = useAuth().state;
+  const isLoggedIn = useSelector(state => state.login.isLoggedIn);
 
   useEffect(()=>{
-    if(!isAuthenticated){
+    if(!isLoggedIn){
       toast.error('Please Login First !!');
       navigate('/login');
     }
