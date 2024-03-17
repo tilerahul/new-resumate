@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
@@ -23,6 +23,14 @@ function Login() {
       [e.target.name]: e.target.value
     });
   }
+
+  useEffect(()=>{
+    const userExist = localStorage.getItem("user");
+    if(userExist){
+      dispatch(login(JSON.parse(userExist)));
+      navigate("/")
+    }
+  }, [])
 
   const submitHandler = async (e) => {
     e.preventDefault();

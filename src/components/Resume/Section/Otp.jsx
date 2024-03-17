@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { useAuth } from '../../../../Reducers/Authentication/AuthContext';
-import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 function Otp() {
-    const { state } = useAuth();
+    const user = useSelector(state => state.login.user)
     const [data, setData] = useState({});
 
     useEffect(() => {
-        setData(state.user || {});
-    }, [state.user]);
+        setData(user || {});
+    }, [user]);
 
     return (
         <>
