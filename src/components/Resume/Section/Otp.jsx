@@ -1,20 +1,10 @@
 import React, { useEffect, useState, useRef } from "react";
-import { useSelector } from "react-redux";
 
 function Otp() {
-    const user = useSelector(state => state.login.user);
-    const [data, setData] = useState({});
     const inputRefs = useRef([]);
-
-    useEffect(() => {
-        setData(user || {});
-    }, [user]);
 
     const handleInputChange = (index, event) => {
         const value = event.target.value;
-      
-
-
         if (value.length === 1 && index < inputRefs.current.length - 1) {
             inputRefs.current[index + 1].focus();
         }
@@ -25,7 +15,7 @@ function Otp() {
             <div className="bg-gray-100 flex flex-col items-center justify-center h-screen w-full dark:bg-gray-900">
                 <div className="w-full max-w-md px-8 py-10 bg-white rounded-lg shadow-md dark:bg-gray-950 dark:text-gray-200">
                     <h1 className="text-2xl font-semibold text-center mb-6">Enter OTP</h1>
-                    <p className="text-gray-600 text-center mb-4">Otp sent to {data.email}</p>
+                    <p className="text-gray-600 text-center mb-4">Otp sent to </p>
                     <div className="grid grid-cols-5 gap-x-4 my-2">
                         <div className="rounded-lg bg-gray-100 cursor-text dark:bg-gray-800 w-14 aspect-square flex items-center justify-center">
 

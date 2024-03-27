@@ -38,7 +38,6 @@ function Contact() {
       ...formData,
       [e.target.name]: e.target.value
     });
-    console.log(formData);
   };
 
   const submitHandler = async (e) => {
