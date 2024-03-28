@@ -33,7 +33,7 @@ function CreateAccount() {
     e.preventDefault();
     try {
       setLoding(true);
-      const response = await fetch(`http://localhost:4000/api/v1/auth/register`, {
+      const response = await fetch(`${BASEURL}api/v1/auth/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -45,7 +45,6 @@ function CreateAccount() {
       const responseData = await response.json();
 
       if (responseData.success) {
-        toast.success(responseData.message);
         sendOTP();
         setOtpField(true);
       } else {
@@ -77,9 +76,8 @@ function CreateAccount() {
     try {
       const {email} = formData;
       const name = formData.firstName + " " + formData.lastName;
-      console.log("email name ", email, name);
       setLoding(true);
-      const response = await fetch(`http://localhost:4000/api/v1/otp`, {
+      const response = await fetch(`${BASEURL}api/v1/otp`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -105,19 +103,17 @@ function CreateAccount() {
   const verifyOtp = async(e) => {
     e.preventDefault();
     const otp = OTP.join('');
-    console.log("otp : ", otp);
     
 
     try {
       const {email} = formData;
-      console.log("email : ", email);
       setLoding(true);
-      const response = await fetch(`http://localhost:4000/api/v1/otp/verify`, {
+      const response = await fetch(`${BASEURL}api/v1/otp/verify`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({email, otp})
+        body: JSON.stringify({email, otp, formData})
       });
       setLoding(false);
 
@@ -125,7 +121,7 @@ function CreateAccount() {
 
       if (responseData.success) {
         toast.success(responseData.message);
-        navigate("/");
+        navigate("/login");
       } else {
         toast.error(responseData.message);
       }
