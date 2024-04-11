@@ -16,7 +16,7 @@ import CraftingBlog from './components/Resume/Blog/CraftingBlog';
 import TailorResume from './components/Resume/Blog/TailorResume';
 import ScrollToTop from './components/Resume/Section/ScrollToTop';
 import PageNotFound from './components/PageNotFound';
-
+import Faq from './components/faq/Faq';
 function App() {
   return (
       <Router>
@@ -32,7 +32,7 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog1" element={<CraftingBlog />} />
           <Route path="/blog2" element={<TailorResume />} />
-          {/* <Route path="/faq" element={<Faq />} /> */}
+          <Route path="/faq" element={<Faq />} />
           <Route path="/resume" element={<Resume />} />
           <Route path="/resume/project" element={<Project />} />
           <Route path="/featurepath" element={<Feature />} />

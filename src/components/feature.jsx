@@ -141,6 +141,8 @@ function Feature() {
 
             {/* Review Section */}
             <Review />
+            <br/>
+            <br />
 
             {/* FAQ section */}
             <Faq />
