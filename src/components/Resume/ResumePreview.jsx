@@ -6,13 +6,16 @@ import { MdEmail } from "react-icons/md";
 import { useReactToPrint } from "react-to-print"
 import toast from 'react-hot-toast';
 
-const ResumePreview = () => {
+const ResumePreview = ({setDisplayForm}) => {
     const { resumeData } = useContext(AppContext);
     const compPDF = useRef();
     const printHandler = useReactToPrint({
         content: () => compPDF.current,
         documentTitle: "ResumateResume",
-        onAfterPrint: () => toast.success("Resume Download Successfully"),
+        onAfterPrint: () => {
+            toast.success("Resume Download Successfully")
+            setDisplayForm(true);
+        },
     });
     return (
         <>
@@ -61,12 +64,12 @@ const ResumePreview = () => {
 
                     {/* objective section */}
                     {resumeData.BasicInfo.objective &&
-                            <div className="pb-6">
+                        <div className="pb-6">
                             <h2 className="text-lg font-semibold">OBJECTIVE
                             </h2>
                             <div className="border-t-2 border-black"></div>
                             <p className="text-gray-800 font-semibold">{resumeData.BasicInfo.objective}</p>
-                            </div>
+                        </div>
                     }
 
                     {/* Education Section */}
@@ -77,13 +80,13 @@ const ResumePreview = () => {
                             {resumeData.Education.map((data, index) => (
                                 <div key={index}>
                                     <div className="flex justify-between">
-                                    <p className="text-gray-800 font-semibold">{`${data.college} - ${data.degree}`}</p>
-                                    <p className="text-gray-600">{data.completionDate}</p>
+                                        <p className="text-gray-800 font-semibold">{`${data.college} - ${data.degree}`}</p>
+                                        <p className="text-gray-600">{data.completionDate}</p>
                                     </div>
-                                    
+
                                     <p className="text-gray-600"></p>
                                     <p className="text-gray-600">{data.CGPA}</p>
-                                    
+
                                     <p className="text-gray-600">{data.description}</p>
                                 </div>
                             ))}
@@ -112,8 +115,8 @@ const ResumePreview = () => {
                             {resumeData.WorkExperience.map((data, index) => (
                                 <div key={index} className="mb-4">
                                     <div className="flex justify-between">
-                                    <p className="text-gray-600 font-medium">{`${data.cName} - ${data.jobTitle}`}</p>
-                                    <p className="text-gray-600">{`${data.startDate} to ${data.completionDate}`}</p>
+                                        <p className="text-gray-600 font-medium">{`${data.cName} - ${data.jobTitle}`}</p>
+                                        <p className="text-gray-600">{`${data.startDate} to ${data.completionDate}`}</p>
                                     </div>
                                     <ul className="list-disc list-inside text-gray-600">
                                         <li>{data.description}</li>
@@ -131,8 +134,8 @@ const ResumePreview = () => {
                             {resumeData.Project.map((data, index) => (
                                 <div key={index}>
                                     <div className="flex justify-between">
-                                    <p className="text-gray-800 mt-3 font-semibold">{data.projectName}</p>
-                                    <p className="text-gray-600">{`${data.startDate} to ${data.completionDate}`}</p>
+                                        <p className="text-gray-800 mt-3 font-semibold">{data.projectName}</p>
+                                        <p className="text-gray-600">{`${data.startDate} to ${data.completionDate}`}</p>
                                     </div>
                                     <p className="text-gray-600">{data.description}</p>
                                 </div>
