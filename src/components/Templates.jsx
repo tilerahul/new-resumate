@@ -4,7 +4,7 @@ function Templates() {
   return (
     <>
       <div className="flex justify-center">
-        <h2 className="text-3xl mt-0 dark:text-gray-400 text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">Pick a Resume Template and create your own Resume within minutes</h2>
+        <h2 className="text-3xl mt-0 dark:text-gray-400 text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400 text-center sm:text-center">Pick a Resume Template and create your own Resume within minutes</h2>
       </div>
       <br />
 

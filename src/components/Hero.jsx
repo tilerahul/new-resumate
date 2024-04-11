@@ -6,7 +6,6 @@ function Hero() {
   const handleButtonClick = () => {
       navigate('/resume');
   };
-
   return (
     <>
       <section className="bg-white dark:bg-gray-900 w-auto m-auto pt-1">
@@ -19,7 +18,7 @@ function Hero() {
               <svg className="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
             </button>
           </div>
-          <div className="lg:hidden">
+          <div className="lg:hidden sm:pt-0 pt-8">
             <img  src="cv_template1.png" alt="mockup" />
           </div>
           <div className="hidden lg:flex lg:mt-0 ml-8 lg:col-span-5">
