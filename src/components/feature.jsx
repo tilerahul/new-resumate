@@ -1,73 +1,21 @@
 import React from 'react'
 import Review from './Resume/Section/Review'
 import Faq from './faq/Faq'
+import ResumeSteps from './ResumeSteps'
+
 function Feature() {
     return (
         <>
             {/* steps to create resume section */}
             <section>
-            <div className="w-auto flex flex-col lg:flex-row lg:items-center lg:justify-evenly mt-8 bg-gray-100 p-6 rounded-2xl shadow-md mx-4 lg:mx-auto lg:max-w-6xl">
-                <div className="gap-6 flex flex-col lg:w-1/2 lg:mr-6">
-                    <div className="flex justify-center lg:justify-end mb-4 lg:mb-0">
-                        <img src="1.png" alt="1" className="rounded-full w-12 h-12 lg:w-auto lg:h-auto" />
-                    </div>
-                    <div className="lg:ml-5 p-4 rounded-lg bg-slate-200">
-                        <h1 className="text-xl lg:text-2xl font-bold text-center lg:text-left">Pick a Template</h1>
-                        <p className="text-gray-700 text-lg lg:text-xl text-center lg:text-left">Start your job search right. Choose from our ATS-friendly, expertly crafted resume templates.</p>
-                    </div>
-                </div>
-                <div className="flex justify-center lg:w-1/2 lg:mt-0 lg:ml-6">
-                    <img src="Pro1.png" alt="Step-1" className="w-[400px] max-w-[300px] lg:max-w-none rounded-3xl mt-6 sm:mt-0" />
-                </div>
-            </div>
+            <ResumeSteps image1="1.png" image2="Pro1.png" title="Pick a Template" description="Start your job search right. Choose from our ATS-friendly, expertly crafted resume templates."/>
 
+            <ResumeSteps image1="2.png" image2="Pro2.png" title="Customize Your Layout" description="Personalize your resume to reflect your unique style, tailor the layout to match your level of experience."/>
 
-            <div className="w-auto flex flex-col lg:flex-row lg:items-center lg:justify-evenly mt-8 bg-gray-100 p-6 rounded-2xl shadow-md mx-4 lg:mx-auto lg:max-w-6xl">
-                <div className="gap-6 flex flex-col lg:w-1/2 lg:mr-6">
-                    <div className="flex justify-center lg:justify-end mb-4 lg:mb-0">
-                        <img src="2.png" alt="1" className="rounded-full w-12 h-12 lg:w-auto lg:h-auto" />
-                    </div>
-                    <div className="lg:ml-5 p-4 rounded-lg bg-slate-200">
-                        <h1 className="text-xl lg:text-2xl font-bold text-center lg:text-left">Customize Your Layout</h1>
-                        <p className="text-gray-700 text-lg lg:text-xl text-center lg:text-left">Personalize your resume to reflect your unique style, tailor the layout to match your level of experience.</p>
-                    </div>
-                </div>
-                <div className="flex justify-center lg:w-1/2 lg:mt-0 lg:ml-6">
-                    <img src="Pro2.png" alt="Step-1" className="w-[400px] max-w-[300px] lg:max-w-none rounded-3xl mt-6 sm:mt-0" />
-                </div>
-            </div>
+            <ResumeSteps image1="3.png" image2="Pro3.png" title="Fill in the blanks" description="Enter your resume details and watch your resume transform in real time"/>
 
-
-
-            <div className="w-auto flex flex-col lg:flex-row lg:items-center lg:justify-evenly mt-8 bg-gray-100 p-6 rounded-2xl shadow-md mx-4 lg:mx-auto lg:max-w-6xl">
-                <div className="gap-6 flex flex-col lg:w-1/2 lg:mr-6">
-                    <div className="flex justify-center lg:justify-end mb-4 lg:mb-0">
-                        <img src="3.png" alt="1" className="rounded-full w-12 h-12 lg:w-auto lg:h-auto" />
-                    </div>
-                    <div className="lg:ml-5 p-4 rounded-lg bg-slate-200">
-                        <h1 className="text-xl lg:text-2xl font-bold text-center lg:text-left">Fill in the blanks</h1>
-                        <p className="text-gray-700 text-lg lg:text-xl text-center lg:text-left">Enter your resume details and watch your resume transform in real time</p>
-                    </div>
-                </div>
-                <div className="flex justify-center lg:w-1/2 lg:mt-0 lg:ml-6">
-                    <img src="Pro3.png" alt="Step-1" className="w-[400px] max-w-[300px] lg:max-w-none rounded-3xl mt-6 sm:mt-0" />
-                </div>
-            </div>
-
-            <div className="w-auto flex flex-col lg:flex-row lg:items-center lg:justify-evenly mt-8 bg-gray-100 p-6 rounded-2xl shadow-md mx-4 lg:mx-auto lg:max-w-6xl">
-                <div className="gap-6 flex flex-col lg:w-1/2 lg:mr-6">
-                    <div className="flex justify-center lg:justify-end mb-4 lg:mb-0">
-                        <img src="4.png" alt="1" className="rounded-full w-12 h-12 lg:w-auto lg:h-auto" />
-                    </div>
-                    <div className="lg:ml-5 p-4 rounded-lg bg-slate-200">
-                        <h1 className="text-xl lg:text-2xl font-bold text-center lg:text-left">Hit the download button</h1>
-                        <p className="text-gray-700 text-lg lg:text-xl text-center lg:text-left">It's completely free and no hidden charges after you finish your resume</p>
-                    </div>
-                </div>
-                <div className="flex justify-center lg:w-1/2 lg:mt-0 lg:ml-6">
-                    <img src="Pro4.png" alt="Step-1" className="w-[400px] max-w-[300px] lg:max-w-none rounded-3xl mt-6 sm:mt-0" />
-                </div>
-            </div>  
+            <ResumeSteps image1="4.png" image2="Pro4.png" title="Hit the download button" description="It's completely free and no hidden charges after you finish your resume"/>
+  
             </section>
 
 
@@ -142,7 +90,6 @@ function Feature() {
             {/* Review Section */}
             <Review />
             <br/>
-            <br />
 
             {/* FAQ section */}
             <Faq />
