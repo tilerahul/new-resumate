@@ -20,7 +20,7 @@ const Resume = () => {
   const navigate = useNavigate();
   const isLoggedIn = useSelector(state => state.login.isLoggedIn);
 
-  const [displayForm, setDisplayForm] = useState(true);
+  const [displayForm, setDisplayForm] = useState(false);
 
   useEffect(() => {
     if (!isLoggedIn) {

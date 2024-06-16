@@ -1,9 +1,10 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState } from 'react';
 import toast from "react-hot-toast";
-import { IoAddCircleSharp, IoPencil } from "react-icons/io5";
+import { IoAddCircleSharp } from "react-icons/io5";
 import { AppContext } from '../../../Context/appContext';
 import { RxCross2 } from "react-icons/rx";
 import { FaEdit } from "react-icons/fa";
+
 const WorkExperience = () => {
   const { setSection, setResumeData, resumeData } = useContext(AppContext);
   const [experienceData, setExperienceData] = useState({
@@ -14,12 +15,16 @@ const WorkExperience = () => {
     description: ''
   });
   const [editIndex, setEditIndex] = useState(null);
+  const [formattedDates, setFormattedDates] = useState({
+    startDate: '',
+    completionDate: ''
+  });
 
   const changeHandler = (e) => {
     setExperienceData({
       ...experienceData,
       [e.target.name]: e.target.value,
-    })
+    });
   }
 
   const submitHandler = (e) => {
@@ -30,13 +35,13 @@ const WorkExperience = () => {
       setResumeData((prev) => ({
         ...prev,
         WorkExperience: updatedExperienceData
-      }))
+      }));
       setEditIndex(null);
     } else {
       setResumeData((prev) => ({
         ...prev,
         WorkExperience: [...prev.WorkExperience, experienceData]
-      }))
+      }));
     }
     toast.success("Data saved Successfully");
     setExperienceData({
@@ -46,6 +51,10 @@ const WorkExperience = () => {
       completionDate: '',
       description: ''
     });
+    setFormattedDates({
+      startDate: '',
+      completionDate: ''
+    });
     setSection('project');
   }
 
@@ -53,14 +62,18 @@ const WorkExperience = () => {
     setResumeData((prev) => ({
       ...prev,
       WorkExperience: [...prev.WorkExperience, experienceData]
-    }))
+    }));
     setExperienceData({
       cName: '',
       jobTitle: '',
       startDate: '',
       completionDate: '',
       description: ''
-    })
+    });
+    setFormattedDates({
+      startDate: '',
+      completionDate: ''
+    });
   }
 
   const nextClick = (e) => {
@@ -74,11 +87,15 @@ const WorkExperience = () => {
     setResumeData({
       ...resumeData,
       WorkExperience: updatedData
-    })
+    });
   }
 
   const editData = (index) => {
     setExperienceData(resumeData.WorkExperience[index]);
+    setFormattedDates({
+      startDate: resumeData.WorkExperience[index].startDate,
+      completionDate: resumeData.WorkExperience[index].completionDate
+    });
     setEditIndex(index);
   }
 
@@ -99,7 +116,6 @@ const WorkExperience = () => {
               </div>
             ))
           }
-
         </div>
       }
       <form className="space-y-4 md:space-y-6" onSubmit={submitHandler}>
@@ -147,10 +163,10 @@ const WorkExperience = () => {
               htmlFor="startDate"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
-              Start Date
+              Start Month and Year
             </label>
             <input
-              type="date"
+              type="month"
               name="startDate"
               id="startDate"
               value={experienceData.startDate}
@@ -163,11 +179,11 @@ const WorkExperience = () => {
               htmlFor="completionDate"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
-              Completion Date
+              Completion Month and Date
             </label>
             <div className="flex items-center">
               <input
-                type="date"
+                type="month"
                 name="completionDate"
                 id="completionDate"
                 value={experienceData.completionDate}
@@ -175,6 +191,7 @@ const WorkExperience = () => {
                 className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               />
             </div>
+            <p>{formattedDates.completionDate}</p>
           </div>
         </div>
         <div>
@@ -205,11 +222,10 @@ const WorkExperience = () => {
           >
             {editIndex !== null ? "Update" : "Save"}
           </button>
-          
         </div>
       </form>
     </div>
-  )
+  );
 }
 
 export default WorkExperience;

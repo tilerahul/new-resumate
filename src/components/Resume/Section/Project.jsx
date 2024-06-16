@@ -128,7 +128,7 @@ const Project = () => {
               Start Date
             </label>
             <input
-              type="date"
+              type="month"
               name="startDate"
               id="startDate"
               value={projectData.startDate}
@@ -146,7 +146,7 @@ const Project = () => {
             </label>
             <div className="flex items-center">
               <input
-                type="date"
+                type="month"
                 name="completionDate"
                 id="completionDate"
                 value={projectData.completionDate}

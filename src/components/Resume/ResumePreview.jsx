@@ -17,6 +17,12 @@ const ResumePreview = ({setDisplayForm}) => {
             setDisplayForm(true);
         },
     });
+    const formatedDate = (date) => {
+        const month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        const newDate = new Date(date)
+
+        return `${month[newDate.getMonth()]} ${newDate.getFullYear()}`
+    }
     return (
         <>
             <button onClick={printHandler} type="button" className="text-white bg-[#2CACD5] hover:bg-[rgb(103,176,200)] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Download Your Resume</button>
@@ -81,7 +87,7 @@ const ResumePreview = ({setDisplayForm}) => {
                                 <div key={index}>
                                     <div className="flex justify-between">
                                         <p className="text-gray-800 font-semibold">{`${data.college} - ${data.degree}`}</p>
-                                        <p className="text-gray-600">{data.completionDate}</p>
+                                        <p className="text-gray-600">{formatedDate(data.completionDate)}</p>
                                     </div>
 
                                     <p className="text-gray-600"></p>
@@ -116,7 +122,7 @@ const ResumePreview = ({setDisplayForm}) => {
                                 <div key={index} className="mb-4">
                                     <div className="flex justify-between">
                                         <p className="text-gray-600 font-medium">{`${data.cName} - ${data.jobTitle}`}</p>
-                                        <p className="text-gray-600">{`${data.startDate} to ${data.completionDate}`}</p>
+                                        <p className="text-gray-600">{`${formatedDate(data.startDate)} - ${formatedDate(data.completionDate)}`}</p>
                                     </div>
                                     <ul className="list-disc list-inside text-gray-600">
                                         <li>{data.description}</li>
@@ -135,9 +141,11 @@ const ResumePreview = ({setDisplayForm}) => {
                                 <div key={index}>
                                     <div className="flex justify-between">
                                         <p className="text-gray-800 mt-3 font-semibold">{data.projectName}</p>
-                                        <p className="text-gray-600">{`${data.startDate} to ${data.completionDate}`}</p>
+                                        <p className="text-gray-600">{`${formatedDate(data.startDate)} - ${formatedDate(data.completionDate)}`}</p>
                                     </div>
-                                    <p className="text-gray-600">{data.description}</p>
+                                    <ul className="list-disc list-inside text-gray-600">
+                                        <li>{data.description}</li>
+                                    </ul>
                                 </div>
                             ))}
 

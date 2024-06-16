@@ -79,7 +79,7 @@ const Achievement = () => {
         <div className='m-2 flex gap-2 flex-wrap'>
           {resumeData.Achievement.map((data, index) => (
             <div key={index} className='flex items-center gap-2 bg-slate-200 px-3 py-1 rounded-lg'>
-              <h3 className='font-medium'>{data.title}</h3>
+              <h3 className='font-medium'>Achievement {index+1}</h3>
               <FaEdit onClick={() => editData(index)} size={15} className='text-blue-800 cursor-pointer' />
               <RxCross2 onClick={() => deleteData(index)} size={20} className='text-red-800 cursor-pointer font-medium' />
             </div>

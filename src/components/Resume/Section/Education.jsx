@@ -89,6 +89,7 @@ const Education = () => {
     setSection('skills');
   };
 
+
   return (
     <div className="shadow-lg p-4">
       <div className='flex items-center justify-between'>
@@ -177,7 +178,7 @@ const Education = () => {
             </label>
             <div className="flex items-center">
               <input
-                type="date"
+                type="month"
                 name="completionDate"
                 id="completionDate"
                 value={education.completionDate}
