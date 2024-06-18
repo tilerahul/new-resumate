@@ -42,15 +42,15 @@ const Resume = () => {
       ) : (
         <div className="pt-0 py-16 flex gap-5">
           
-          <div className="flex flex-col">
+          <div className="flex flex-col item-center">
 
-          <div className="md:hidden p-4">
+          <div className="md:hidden p-2 mt-7 ml-4 mr-0 pr-0">
             {!isOpen && <FaAnglesRight onClick={() => setIsOpen(true)} />}
           </div>
 
           <div
             className={`bg-slate-100 pt-0 ${
-              isOpen ? "block" : "hidden"
+              isOpen ? "block fixed h-[100vh]" : "hidden"
             } md:block`}
           >
             <ul className="p-4 flex flex-col font-medium cursor-pointer gap-1">
