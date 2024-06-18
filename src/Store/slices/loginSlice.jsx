@@ -1,8 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+const user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null;
+
 const initialState = {
-  isLoggedIn: false,
-  user: null,
+  isLoggedIn: !!user,
+  user: user,
 };
 
 const loginSlice = createSlice({
@@ -12,7 +14,6 @@ const loginSlice = createSlice({
     login(state, action) {
       state.isLoggedIn = true;
       state.user = action.payload;
-      // Store user data in localStorage
       localStorage.setItem('user', JSON.stringify(action.payload));
     },
     logout(state) {
