@@ -167,7 +167,7 @@ const Resume = () => {
               {section === "skills" && <Skills />}
             </div>
           </div>
-          <div className="pt-16 hidden md:block">
+          <div className="pt-7 hidden md:block">
             <ResumePreview setDisplayForm={setDisplayForm} />
           </div>
         </div>
