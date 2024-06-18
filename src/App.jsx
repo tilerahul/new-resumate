@@ -16,6 +16,7 @@ import CraftingBlog from './components/Resume/Blog/CraftingBlog';
 import TailorResume from './components/Resume/Blog/TailorResume';
 import ScrollToTop from './components/Resume/Section/ScrollToTop';
 import PageNotFound from './components/PageNotFound';
+import ResumePreview from './components/Resume/ResumePreview';
 import Faq from './components/faq/Faq';
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
           <Route path="/faq" element={<Faq />} />
           <Route path="/resume" element={<Resume />} />
           <Route path="/resume/project" element={<Project />} />
+          <Route path="/resume/resumePreview" element={<ResumePreview />} />
           <Route path="/featurepath" element={<Feature />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
