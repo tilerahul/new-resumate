@@ -18,6 +18,7 @@ import ScrollToTop from './components/Resume/Section/ScrollToTop';
 import PageNotFound from './components/PageNotFound';
 import ResumePreview from './components/Resume/ResumePreview';
 import Faq from './components/faq/Faq';
+
 function App() {
   return (
       <Router>
