@@ -48,7 +48,7 @@ const ResumePreview = ({ setDisplayForm }) => {
         </button>
         <div className="border shadow-lg rounded  md:min-w-[650px] md:min-h-[900px]">
           <div
-            className="bg-white w-full h-full rounded-lg  inline-block m-auto"
+            className="bg-white w-full h-full rounded-lg  p-5 inline-block m-auto"
             ref={compPDF}
             style={{ widows: "595px" }}
           >
