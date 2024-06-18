@@ -77,7 +77,7 @@ const Resume = () => {
               }
             </div>
           </div>
-          <div className="pt-16">
+          <div className="pt-16 hidden md:block">
             <ResumePreview setDisplayForm={setDisplayForm} />
           </div>
         </div>
