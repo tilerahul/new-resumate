@@ -362,19 +362,34 @@ function Navbar() {
                   </Link>
                 </li>
                 <li className="mb-1">
-                 
+
                   <Link
                     className="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
                     to="/contact"
                     onClick={() => {
                       toggleMenu();
-                      
+
                     }}
                   >
                     Contact
                   </Link>
-                  
+
                 </li>
+                {isLoggedIn &&
+                  <li className="mb-1">
+
+                    <Link
+                      className="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
+                      to="/profile"
+                      onClick={() => {
+                        toggleMenu();
+                      }}
+                    >
+                      Your Profile
+                    </Link>
+
+                  </li>
+                }
               </ul>
             </div>
             <div className="mt-auto">
