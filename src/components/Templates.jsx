@@ -1,20 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
+import { AppContext } from "../Context/appContext";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const slideImages = [
   {
+    url: "cv_template5.jpg",
+    templete : 'One'
+  },
+  {
     url: "cv_template2.png",
+    templete : 'Two'
   },
   {
     url: "cv_template4.png",
-  },
-  {
-    url: "cv_template3.png",
+    templete : 'One'
   },
 ];
 
 function Templates() {
+  const { setSetTemplete } = useContext(AppContext);
+  const navigate = useNavigate();
   return (
     <>
       <div className="flex justify-center">
@@ -27,21 +34,30 @@ function Templates() {
       <div className="hidden lg:grid grid-cols-1 ml-6 mr-6 md:grid-cols-3 gap-2">
         <div className="flex items-center justify-center">
           <img
+            src="cv_template5.jpg"
+            alt="template"
+            className="w-5/6 h-auto object-cover rounded-lg border border-gray-300 cursor-pointer"
+            onClick={() => {
+              setSetTemplete('One')
+              navigate('/resume')
+            }}
+          />
+        </div>
+        <div className="flex items-center justify-center">
+          <img
             src="cv_template2.png"
             alt="template"
-            className="w-3/4 h-auto object-cover rounded-lg border border-gray-300"
+            className="w-3/4 h-auto object-cover rounded-lg border border-gray-300 cursor-pointer"
+            onClick={() => {
+              setSetTemplete('Two')
+              navigate('/resume')
+            }
+            }
           />
         </div>
         <div className="flex items-center justify-center">
           <img
             src="cv_template4.png"
-            alt="template"
-            className="w-3/4 h-auto object-cover rounded-lg border border-gray-300"
-          />
-        </div>
-        <div className="flex items-center justify-center">
-          <img
-            src="cv_template3.png"
             alt="template"
             className="w-3/4 h-auto object-cover rounded-lg border border-gray-300"
           />
@@ -55,7 +71,11 @@ function Templates() {
               <img
                 src={slideImage.url}
                 alt="template"
-                className="w-[300px] h-[430px] object-cover rounded-lg border border-gray-300"
+                onClick={() => {
+                  setSetTemplete(slideImage.templete)
+                  navigate('/resume')
+                }}
+                className="w-[300px] h-[430px] object-cover rounded-lg border border-gray-300 cursor-pointer"
               />
             </div>
           ))}

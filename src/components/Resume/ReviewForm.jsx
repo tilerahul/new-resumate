@@ -12,7 +12,7 @@ const ReviewForm = ({ setDisplayForm }) => {
     const user = useSelector(state => state.login.user);
 
     const [starData, setStar] = useState(0);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
@@ -32,7 +32,7 @@ const ReviewForm = ({ setDisplayForm }) => {
                 star: starData
             })
         }
-    }, [setStar])
+    }, [setStar, setFormData])
 
 
     const changeHandler = (e) => {
@@ -47,7 +47,8 @@ const ReviewForm = ({ setDisplayForm }) => {
         e.preventDefault();
         try {
             setLoading(true);
-            const response = await fetch(`${BASEURL}api/v1/auth/login`, {
+            console.log(formData)
+            const response = await fetch(`${BASEURL}api/v1/review`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

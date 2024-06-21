@@ -8,7 +8,6 @@ import Other from "./Section/Other";
 import Project from "./Section/Project";
 import Skills from "./Section/Skills";
 import WorkExperience from "./Section/WorkExperience";
-import ResumePreview from "./ResumePreview";
 import { AppContext } from "../../Context/appContext";
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
@@ -16,9 +15,11 @@ import { useSelector } from "react-redux";
 import ReviewForm from "./ReviewForm";
 import { FaAnglesRight } from "react-icons/fa6";
 import { FaEye } from "react-icons/fa";
+import TempleteTwo from './Templetes/TempleteTwo'
+import TempleteOne from "./Templetes/TempleteOne";
 
 const Resume = () => {
-  const { section, setSection } = useContext(AppContext);
+  const { section, setSection, templete } = useContext(AppContext);
   const navigate = useNavigate();
   const isLoggedIn = useSelector((state) => state.login.isLoggedIn);
   const [isOpen, setIsOpen] = useState(false);
@@ -168,7 +169,8 @@ const Resume = () => {
             </div>
           </div>
           <div className="pt-7 hidden md:block">
-            <ResumePreview setDisplayForm={setDisplayForm} />
+            {templete === 'One' && <TempleteOne/>}
+            {templete === 'Two' && <TempleteTwo/>}
           </div>
         </div>
       )}

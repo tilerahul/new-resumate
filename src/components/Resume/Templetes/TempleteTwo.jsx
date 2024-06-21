@@ -1,22 +1,12 @@
-import React, { useContext, useRef } from "react";
-import { AppContext } from "../../Context/appContext";
+import React, { useContext } from "react";
+import { AppContext } from "../../../Context/appContext";
 import { IoCall } from "react-icons/io5";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-import { useReactToPrint } from "react-to-print";
-import toast from "react-hot-toast";
 
-const ResumePreview = ({ setDisplayForm }) => {
-  const { resumeData } = useContext(AppContext);
-  const compPDF = useRef();
-  const printHandler = useReactToPrint({
-    content: () => compPDF.current,
-    documentTitle: "ResumateResume",
-    onAfterPrint: () => {
-      toast.success("Resume Download Successfully");
-      setDisplayForm(true);
-    },
-  });
+const TempleteTwo = () => {
+  const { resumeData, printHandler, compPDF } = useContext(AppContext);
+  
   const formatedDate = (date) => {
     const month = [
       "Jan",
@@ -40,7 +30,7 @@ const ResumePreview = ({ setDisplayForm }) => {
     <>
       <div className="mt-4 ml-4 md:ml-0 mr-4  md:mt-0 md:pt-0">
         <button
-          onClick={printHandler}
+          onClick={()=> printHandler()}
           type="button"
           className="text-white bg-[#2CACD5] hover:bg-[rgb(103,176,200)] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
         >
@@ -54,12 +44,9 @@ const ResumePreview = ({ setDisplayForm }) => {
           >
             {/* Basic Info Section */}
             <div className="mb-4">
-              {resumeData.BasicInfo.firstName && (
+              {resumeData.BasicInfo.name && (
                 <h1 className="text-2xl font-semibold">
-                  {`${resumeData.BasicInfo.firstName} `}
-                  {resumeData.BasicInfo.lastName && (
-                    <span>{resumeData.BasicInfo.lastName}</span>
-                  )}
+                  {`${resumeData.BasicInfo.name} `}
                 </h1>
               )}
               {resumeData.BasicInfo.jobTitle && (
@@ -266,4 +253,4 @@ const ResumePreview = ({ setDisplayForm }) => {
   );
 };
 
-export default ResumePreview;
+export default TempleteTwo;
