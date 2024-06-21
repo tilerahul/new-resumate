@@ -49,16 +49,15 @@ const Resume = () => {
                 <FaEye
                   size={20}
                   className="mt-5"
-          
+
                 />
-               
+
               </Link>
             </div>
-
+            
             <div
-              className={`bg-slate-100 pt-0 ${
-                isOpen ? "block fixed h-[100vh]" : "hidden"
-              } md:block`}
+              className={`bg-slate-100 pt-0 ${isOpen ? "block fixed h-[100vh]" : "hidden"
+                } md:block`}
             >
               <ul className="p-4 flex flex-col font-medium cursor-pointer gap-1">
                 <li
@@ -169,8 +168,8 @@ const Resume = () => {
             </div>
           </div>
           <div className="pt-7 hidden md:block">
-            {templete === 'One' && <TempleteOne/>}
-            {templete === 'Two' && <TempleteTwo/>}
+            {templete === 'One' && <TempleteOne />}
+            {templete === 'Two' && <TempleteTwo />}
           </div>
         </div>
       )}
