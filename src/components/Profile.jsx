@@ -5,9 +5,21 @@ import { useSelector } from "react-redux";
 const Profile = () => {
     const user = useSelector(state => state.login.user);
     const [data, setData] = useState({});
+    const [edit, setEdit] = useState(false);
     useEffect(() => {
         setData(user);
     }, [])
+
+    const submitHandler = (e) => {
+        e.preventDefault();
+        if (edit) {
+            setEdit(false);
+        } else {
+            setEdit(true);
+            alert('Make Your Changes !!!')
+        }
+    }
+
     return (
         <div className="h-screen relative">
             <div className="w-full h-3/5 bg-gradient-to-r from-sky-400 to-emerald-600"></div>
@@ -20,7 +32,7 @@ const Profile = () => {
                         <div>
                             <label htmlFor="firstName" className="block mb-2 text-sm font-medium text-gray-900">First name</label>
                             <input
-                                readOnly
+                                readOnly={!edit}
                                 type="text"
                                 name="firstName"
                                 value={data.firstName}
@@ -33,7 +45,7 @@ const Profile = () => {
                         <div>
                             <label htmlFor="lastName" className="block mb-2 text-sm font-medium text-gray-900">Last name</label>
                             <input
-                                readOnly
+                                readOnly={!edit}
                                 type="text"
                                 name="lastName"
                                 value={data.lastName}
@@ -48,7 +60,7 @@ const Profile = () => {
                         <div>
                             <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">Email</label>
                             <input
-                                readOnly
+                                readOnly={!edit}
                                 type="email"
                                 name="email"
                                 value={data.email}
@@ -61,7 +73,7 @@ const Profile = () => {
                         <div>
                             <label htmlFor="phone" className="block mb-2 text-sm font-medium text-gray-900">Phone number</label>
                             <input
-                                readOnly
+                                readOnly={!edit}
                                 type="text"
                                 name="phone"
                                 value={data.phone}
@@ -87,10 +99,12 @@ const Profile = () => {
                         </div>
                         <div>
                             <button
-                                type="button"
+                                type="submit"
+                                name='submit'
                                 className="mt-7 font-medium bg-sky-400 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                                onClick={submitHandler}
                             >
-                                Update Profile
+                                {edit ? 'Update Profile' : 'Edit Profile'}
                             </button>
                         </div>
                     </div>
