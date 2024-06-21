@@ -19,9 +19,9 @@ function Hero() {
             </button>
           </div>
           <div className="lg:hidden md:pt-0 pt-8">
-            <img  src="cv_template1.png" alt="mockup" />
+            <img  src="cv_template1.png" className='' alt="mockup" />
           </div>
-          <div className="hidden lg:flex lg:mt-0 ml-8 lg:col-span-5">
+          <div className="hidden lg:flex lg:mt-0 ml-8 lg:col-span-5  transform transition duration-500 hover:scale-105">
             <img className="w-3/4 h-auto" src="cv_template1.png" alt="mockup" />
           </div>
         </div>

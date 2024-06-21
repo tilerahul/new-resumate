@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 import { AppContext } from "../Context/appContext";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const slideImages = [
   {
@@ -36,7 +36,7 @@ function Templates() {
           <img
             src="cv_template5.jpg"
             alt="template"
-            className="w-5/6 h-auto object-cover rounded-lg border border-gray-300 cursor-pointer"
+            className="w-5/6 h-auto object-cover rounded-lg border border-gray-300 cursor-pointer transform transition duration-500 hover:scale-105"
             onClick={() => {
               setSetTemplete('One')
               navigate('/resume')
@@ -47,7 +47,7 @@ function Templates() {
           <img
             src="cv_template2.png"
             alt="template"
-            className="w-3/4 h-auto object-cover rounded-lg border border-gray-300 cursor-pointer"
+            className="w-3/4 h-auto object-cover rounded-lg border border-gray-300 cursor-pointer transform transition duration-500 hover:scale-105"
             onClick={() => {
               setSetTemplete('Two')
               navigate('/resume')
@@ -59,7 +59,7 @@ function Templates() {
           <img
             src="cv_template4.png"
             alt="template"
-            className="w-3/4 h-auto object-cover rounded-lg border border-gray-300"
+            className="w-3/4 h-auto object-cover rounded-lg border border-gray-300 cursor-pointer transform transition duration-500 hover:scale-105"
           />
         </div>
       </div>

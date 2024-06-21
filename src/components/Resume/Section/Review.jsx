@@ -25,11 +25,11 @@ function Review() {
   const generateStar = (n) => {
     return Array(5)
       .fill()
-      .map((item, i) => <Star key={i} i={i} n={n}/>)
+      .map((item, i) => <Star key={i} i={i} n={n} />)
   }
   const Star = ({ i, n }) => {
-    return n > i ? <FaStar size={30} className='text-yellow-400 cursor-pointer'/> :
-      <FaRegStar size={30} className='text-yellow-400 cursor-pointer'/>
+    return n > i ? <FaStar size={30} className='text-yellow-400 cursor-pointer' /> :
+      <FaRegStar size={30} className='text-yellow-400 cursor-pointer' />
   }
 
   return (
@@ -44,9 +44,9 @@ function Review() {
 
       {loading ? <Loader /> :
         <div className="mt-10 mx-4 mr-4  text-center  flex md:flex-row flex-wrap gap-3 justify-center">
-          
+
           {data.map((item, index) => (
-            <div key={index} className="mb-12 md:mb-0 w-[350px] h-auto">
+            <div key={index} className="mb-12 md:mb-0 w-[350px] h-auto transform transition duration-500 hover:scale-105">
               <div className="mb-6 flex justify-center">
                 <img
                   src={item.imgUrl}

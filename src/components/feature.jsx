@@ -31,7 +31,7 @@ function Feature() {
                         <br />
                         <p className="text-center text-base font-semibold leading-7 text-primary-500">The best resume builder for your needs</p>
                         <ul className="mt-16 grid grid-cols-1 gap-6 text-center text-slate-700 md:grid-cols-3">
-                            <li className="rounded-xl bg-white px-6 py-8 shadow-sm">
+                            <li className="rounded-xl bg-white px-6 py-8 shadow-sm  transform transition duration-500 hover:scale-105">
 
                                 <img src="free.svg" alt="" className="mx-auto h-10 w-10" />
                                 <h3 className="my-3 font-display font-medium">Totally Free</h3>
@@ -40,7 +40,7 @@ function Feature() {
                                 </p>
 
                             </li>
-                            <li className="rounded-xl bg-white px-6 py-8 shadow-sm">
+                            <li className="rounded-xl bg-white px-6 py-8 shadow-sm transform transition duration-500 hover:scale-105">
 
                                 <img src="professional.svg"
                                     alt="" className="mx-auto h-10 w-10" />
@@ -50,7 +50,7 @@ function Feature() {
                                 </p>
 
                             </li>
-                            <li className="rounded-xl bg-white px-6 py-8 shadow-sm">
+                            <li className="rounded-xl bg-white px-6 py-8 shadow-sm transform transition duration-500 hover:scale-105">
                                 <img src="free.svg" alt="" className="mx-auto h-10 w-10" />
                                 <h3 className="my-3 font-display font-medium">No Hidden Fees</h3>
                                 <p className="mt-1.5 text-sm leading-6 text-secondary-500">
@@ -58,14 +58,14 @@ function Feature() {
                                 </p>
 
                             </li>
-                            <li className="rounded-xl bg-white px-6 py-8 shadow-sm">
+                            <li className="rounded-xl bg-white px-6 py-8 shadow-sm transform transition duration-500 hover:scale-105">
                                 <a href="/pricing" className="group">
                                     <img src="AtsFriendly.svg" alt="" className="mx-auto h-10 w-10" />
                                     <h3 className="my-3 font-display font-medium group-hover:text-primary-500">ATS Friendly</h3>
                                     <p className="mt-1.5 text-sm leading-6 text-secondary-500">Our templates are designed to be Applicant Tracking System (ATS) friendly. This means they are optimized to make it through automated resume screening software used by many employers.</p>
                                 </a>
                             </li>
-                            <li className="rounded-xl bg-white px-6 py-8 shadow-sm">
+                            <li className="rounded-xl bg-white px-6 py-8 shadow-sm transform transition duration-500 hover:scale-105">
                                 <a href="/templates" className="group">
                                     <img src="editResume.svg" alt="" className="mx-auto h-10 w-10" />
                                     <h3 className="my-3 font-display font-medium group-hover:text-primary-500">
@@ -74,7 +74,7 @@ function Feature() {
                                     <p className="mt-1.5 text-sm leading-6 text-secondary-500">Our resume builder allows you to edit and update your resume in real time. This means you can see changes as you make them, allowing for easy customization and refinement. </p>
                                 </a>
                             </li>
-                            <li className="rounded-xl bg-white px-6 py-8 shadow-sm">
+                            <li className="rounded-xl bg-white px-6 py-8 shadow-sm transform transition duration-500 hover:scale-105">
                                 <a href="/download" className="group">
                                     <img src="EasyToUse.svg" alt="" className="mx-auto h-10 w-10" />
                                     <h3 className="my-3 font-display font-medium group-hover:text-primary-500">Easy to Use</h3>

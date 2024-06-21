@@ -7,7 +7,7 @@ const faqComponent = ({ id, question, answer }) => {
 
   return (
     <>
-      <div className='shadow-xl my-4 rounded-md'>
+      <div className='shadow-xl my-4 rounded-md  transform transition duration-500 hover:scale-105'>
         <div className='flex items-center justify-between'>
           <p className='px-5 pt-3 m-2 font-medium'>Q.{id} {question}</p>
           <span className='mx-3 lg:mx-16'>{show ? <FaMinus onClick={() => setShow(false)}className='cursor-pointer' /> : <FaPlus onClick={() => setShow(true)}className='cursor-pointer' />}</span>
