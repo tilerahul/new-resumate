@@ -12,7 +12,7 @@ const About = () => {
                 <div className="flex flex-col items-center">
                     <Title title='About Us' />
                     <div className="flex flex-col-reverse lg:flex-row items-center gap-16 justify-center flex-wrap">
-                        <div className="lg:text-right text-justify lg:w-2/5">
+                        <div className="lg:text-left text-justify lg:w-2/5">
                             Welcome to <span className="font-semibold">Resumate</span>! We are passionate about empowering individuals to craft compelling resumes that highlight their unique skills and experiences. Our mission is to provide user-friendly tools and resources to help you land your dream job.
                         </div>
                         <div className="lg:w-1/6 max-w-40 m-4">
@@ -36,7 +36,7 @@ const About = () => {
                 <div className="flex flex-col items-center">
                     <Title title='What we offer' />
                     <div className="flex flex-col-reverse lg:flex-row items-center gap-16 justify-center flex-wrap">
-                        <div className="lg:text-right text-justify lg:w-2/5">
+                        <div className="lg:text-left text-justify lg:w-2/5">
                             At <span className="font-semibold">Resumate</span>, we offer a comprehensive resume-building platform designed to simplify the process of crafting polished resumes. Our intuitive tools and customizable templates make it easy for users to create standout resumes tailored to their individual strengths and career goals.
                         </div>
                         <div className="lg:w-1/6 max-w-40 m-4">

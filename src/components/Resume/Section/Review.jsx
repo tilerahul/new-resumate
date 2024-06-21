@@ -18,7 +18,6 @@ function Review() {
         setLoading(false)
       }
       );
-    // .then(data => console.log(data));
 
   }, []);
 
@@ -44,7 +43,7 @@ function Review() {
 
       {loading ? <Loader /> :
         <div className="mt-10 mx-4 mr-4  text-center  flex md:flex-row flex-wrap gap-3 justify-center">
-
+          {/* <Slide> */}
           {data.map((item, index) => (
             <div key={index} className="mb-12 md:mb-0 w-[350px] h-auto transform transition duration-500 hover:scale-105">
               <div className="mb-6 flex justify-center">
@@ -69,11 +68,10 @@ function Review() {
               </div>
             </div>
           ))}
+          {/* </Slide> */}
+
         </div>
       }
-
-
-
     </>
   )
 }
