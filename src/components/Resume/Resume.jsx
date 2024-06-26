@@ -24,14 +24,15 @@ const Resume = () => {
   const navigate = useNavigate();
   const isLoggedIn = useSelector((state) => state.login.isLoggedIn);
   const [isOpen, setIsOpen] = useState(false);
-  const [isChange, setIsChange] = useState(true);
+  const [isChange, setIsChange] = useState(false);
 
   useEffect(() => {
+    document.body.style.overflowY = !isChange ? 'scroll' : "hidden"
     if (!isLoggedIn) {
       toast.error("Please Login First !!");
       navigate("/login");
     }
-  }, [isLoggedIn, navigate]);
+  }, [isLoggedIn, navigate, isChange]);
 
   const handleSectionClick = (sectionName) => {
     setSection(sectionName);
