@@ -4,7 +4,7 @@ import { IoCall } from "react-icons/io5";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 
-const TempleteTwo = () => {
+const TempleteTwo = ({setIsChange}) => {
   const { resumeData, printHandler, compPDF } = useContext(AppContext);
   
   const formatedDate = (date) => {
@@ -36,6 +36,13 @@ const TempleteTwo = () => {
         >
           Download Your Resume
         </button>
+        <button
+                    type="button"
+                    onClick={()=>setIsChange(true)}
+                    className="text-white bg-[#2CACD5] hover:bg-[rgb(103,176,200)] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                >
+                    Change Templete
+                </button>
         <div className="border shadow-lg rounded  md:min-w-[650px] md:min-h-[900px]">
           <div
             className="bg-white w-full h-full rounded-lg  p-5 inline-block m-auto"
@@ -245,7 +252,7 @@ const TempleteTwo = () => {
                 ))}
               </div>
             )}
-            <div className="text-center text-slate-400 pt-2">resumate.com</div>
+            <div className="text-center text-slate-400 pt-2">resumate-resume.netlify.app</div>
           </div>
         </div>
       </div>

@@ -7,19 +7,19 @@ import { useNavigate } from "react-router-dom";
 const slideImages = [
   {
     url: "cv_template5.jpg",
-    templete : 'One'
+    templete: 'One'
   },
   {
     url: "cv_template2.png",
-    templete : 'Two'
+    templete: 'Two'
   },
   {
     url: "cv_template4.png",
-    templete : 'One'
+    templete: 'One'
   },
 ];
 
-function Templates() {
+function Templates({ setIsChange }) {
   const { setSetTemplete } = useContext(AppContext);
   const navigate = useNavigate();
   return (
@@ -39,6 +39,7 @@ function Templates() {
             className="w-5/6 h-auto object-cover rounded-lg border border-gray-300 cursor-pointer transform transition duration-500 hover:scale-105"
             onClick={() => {
               setSetTemplete('One')
+              setIsChange(false)
               navigate('/resume')
             }}
           />
@@ -50,6 +51,7 @@ function Templates() {
             className="w-3/4 h-auto object-cover rounded-lg border border-gray-300 cursor-pointer transform transition duration-500 hover:scale-105"
             onClick={() => {
               setSetTemplete('Two')
+              setIsChange(false)
               navigate('/resume')
             }
             }
@@ -59,6 +61,11 @@ function Templates() {
           <img
             src="cv_template4.png"
             alt="template"
+            onClick={() => {
+              setSetTemplete('One')
+              setIsChange(false)
+              navigate('/resume')
+            }}
             className="w-3/4 h-auto object-cover rounded-lg border border-gray-300 cursor-pointer transform transition duration-500 hover:scale-105"
           />
         </div>
@@ -73,6 +80,7 @@ function Templates() {
                 alt="template"
                 onClick={() => {
                   setSetTemplete(slideImage.templete)
+                  setIsChange(false)
                   navigate('/resume')
                 }}
                 className="w-[300px] h-[430px] object-cover rounded-lg border border-gray-300 cursor-pointer"
