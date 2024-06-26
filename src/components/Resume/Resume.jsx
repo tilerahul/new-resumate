@@ -18,6 +18,8 @@ import TempleteTwo from './Templetes/TempleteTwo'
 import TempleteOne from "./Templetes/TempleteOne";
 import ChangeTemplete from "./Templetes/ChangeTemplete";
 import { MdChangeCircle } from "react-icons/md";
+import ReviewForm from "../Resume/ReviewForm";
+import { VscFeedback } from "react-icons/vsc";
 
 const Resume = () => {
   const { section, setSection, templete } = useContext(AppContext);
@@ -25,14 +27,16 @@ const Resume = () => {
   const isLoggedIn = useSelector((state) => state.login.isLoggedIn);
   const [isOpen, setIsOpen] = useState(false);
   const [isChange, setIsChange] = useState(false);
+  const [feedback, setFeedback] = useState(false);
 
   useEffect(() => {
     document.body.style.overflowY = !isChange ? 'scroll' : "hidden"
+    document.body.style.overflowY = !feedback ? 'scroll' : "hidden"
     if (!isLoggedIn) {
       toast.error("Please Login First !!");
       navigate("/login");
     }
-  }, [isLoggedIn, navigate, isChange]);
+  }, [isLoggedIn, navigate, isChange, feedback]);
 
   const handleSectionClick = (sectionName) => {
     setSection(sectionName);
@@ -58,12 +62,26 @@ const Resume = () => {
               className="mt-4"
               onClick={() => setIsChange(true)}
             />
+            <VscFeedback
+              size={20}
+              className="mt-4"
+              onClick={() => setFeedback(true)}
+            />
           </div>
 
           <div
             className={`bg-slate-100 pt-0 ${isOpen ? "block fixed h-[100vh]" : "hidden"
               } md:block`}
           >
+            <div className="flex justify-center pt-7 px-5">
+              <button
+                type="button"
+                onClick={() => setFeedback(true)}
+                className="text-white w-full bg-[#2CACD5] hover:bg-[rgb(103,176,200)] font-medium text-sm px-3 py-2 rounded"
+              >
+                Give Feedback
+              </button>
+            </div>
             <ul className="p-4 flex flex-col font-medium cursor-pointer gap-1">
               <li
                 onClick={() => handleSectionClick("basicInfo")}
@@ -179,6 +197,9 @@ const Resume = () => {
       </div>
       <div className={isChange ? "fixed top-16" : "hidden"}>
         <ChangeTemplete setIsChange={setIsChange} />
+      </div>
+      <div className={feedback ? "fixed top-16" : "hidden"}>
+        <ReviewForm setFeedback={setFeedback} />
       </div>
     </>
   );
