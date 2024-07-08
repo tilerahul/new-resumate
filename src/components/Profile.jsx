@@ -1,12 +1,22 @@
 import { useEffect, useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import toast from "react-hot-toast";
 
 const Profile = () => {
     const user = useSelector(state => state.login.user);
+    const isLoggedIn = useSelector(state => state.login.isLoggedIn);
+
     const [data, setData] = useState({});
     const [edit, setEdit] = useState(false);
+
+    const navigate = useNavigate();
+
     useEffect(() => {
+        if(!isLoggedIn){
+            toast.error('Please Login First');
+            navigate('/');
+        }
         setData(user);
     }, [])
 

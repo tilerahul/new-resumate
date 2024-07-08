@@ -18,6 +18,7 @@ import ScrollToTop from './components/Resume/Section/ScrollToTop';
 import PageNotFound from './components/PageNotFound';
 import TempleteTwo from './components/Resume/Templetes/TempleteTwo'
 import Faq from './components/faq/Faq';
+import AdminDashboard from './components/AdminDashboard/AdminDashboard';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
           <Route path="/resume/project" element={<Project />} />
           <Route path="/resume/resumePreview" element={<TempleteTwo />} />
           <Route path="/featurepath" element={<Feature />} />
+          <Route path="/admindashboard" element={<AdminDashboard />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
         <Footer/>

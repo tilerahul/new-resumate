@@ -146,9 +146,33 @@ function Navbar() {
                 className="text-md text-black  hover:text-gray-500"
                 to="/about"
               >
-                About Us
+                AboutUs
               </NavLink>
             </li>
+            <li className="text-black">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    stroke="currentColor"
+                    className="w-4 h-4 current-fill"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+                    />
+                  </svg>
+                </li>
+                <li>
+                  <NavLink
+                    className="text-md text-black hover:text-gray-500 text-center"
+                    to="/FAQ"
+                  >
+                    FAQ
+                  </NavLink>
+                </li>
             <li className="text-black">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -165,30 +189,7 @@ function Navbar() {
                 />
               </svg>
             </li>
-            <li>
-              <NavLink
-                className="text-md text-black hover:text-gray-500"
-                to="/faq"
-              >
-                FAQ
-              </NavLink>
-            </li>
-            <li className="text-black">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                stroke="currentColor"
-                className="w-4 h-4 current-fill"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
-                />
-              </svg>
-            </li>
+
             <li>
               <NavLink
                 className="text-md text-black hover:text-gray-500"
@@ -221,6 +222,33 @@ function Navbar() {
                 Contact
               </NavLink>
             </li>
+            {user.isAdmin &&
+              <>
+                <li className="text-black">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    stroke="currentColor"
+                    className="w-4 h-4 current-fill"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+                    />
+                  </svg>
+                </li>
+                <li>
+                  <NavLink
+                    className="text-md text-black hover:text-gray-500 text-center"
+                    to="/admindashboard"
+                  >
+                    Dashboard
+                  </NavLink>
+                </li>
+              </>}
           </ul>
           {!isLoggedIn && (
             <div>
@@ -269,7 +297,7 @@ function Navbar() {
                     <div className="w-[200px] h-[80px] bg-slate-100 rounded-md flex flex-col justify-center p-5 gap-2">
                       <div className="flex items-center gap-2">
                         <FaUser />
-                        <Link to="/profile"> Your Profile</Link>
+                        <Link to="/profile">Your Profile</Link>
                       </div>
                       <div className="flex items-center gap-2">
                         <RiLogoutBoxRFill />
@@ -387,7 +415,19 @@ function Navbar() {
                     >
                       Your Profile
                     </Link>
-
+                  </li>
+                }
+                {user.isAdmin &&
+                  <li className="mb-1">
+                    <Link
+                      className="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
+                      to="/admindashboard"
+                      onClick={() => {
+                        toggleMenu();
+                      }}
+                    >
+                      Admin Dashboard
+                    </Link>
                   </li>
                 }
               </ul>
