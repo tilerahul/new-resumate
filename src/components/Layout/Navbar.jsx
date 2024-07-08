@@ -222,7 +222,7 @@ function Navbar() {
                 Contact
               </NavLink>
             </li>
-            {user.isAdmin &&
+            {isLoggedIn &&
               <>
                 <li className="text-black">
                   <svg
@@ -417,7 +417,7 @@ function Navbar() {
                     </Link>
                   </li>
                 }
-                {user.isAdmin &&
+                {isLoggedIn &&
                   <li className="mb-1">
                     <Link
                       className="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
@@ -462,8 +462,8 @@ function Navbar() {
                     to="/"
                     className=" block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-blue-600 hover:bg-blue-700  rounded-xl text-decoration-none"
                     onClick={() => {
-                      toggleMenu();
                       logoutHandler();
+                      toggleMenu();
                     }}
                   >
                     Log Out
