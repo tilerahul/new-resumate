@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { BASEURL } from '../BASEURL';
+import { FaEdit } from 'react-icons/fa';
+import { MdDelete } from 'react-icons/md';
 
 const UserAdmin = () => {
     const [data, setData] = useState(null);
@@ -7,7 +9,8 @@ const UserAdmin = () => {
         fetch(`${BASEURL}api/v1/auth/getUsers`)
             .then(response => response.json())
             .then((data) => {
-                setData(data)
+                setData(data);
+                console.log('data : ', data)
             }
             );
     }, []);
@@ -34,7 +37,7 @@ const UserAdmin = () => {
                                 <th scope="col" class="px-6 py-3">
                                     Join
                                 </th>
-                                <th scope="col" class="px-6 py-3">
+                                <th scope="col" class="px-6 py-3 text-center">
                                     Action
                                 </th>
                             </tr>
@@ -56,6 +59,16 @@ const UserAdmin = () => {
                                     </td>
                                     <td class="px-6 py-4">
                                         {user.joinedAt.split('T')[0]}
+                                    </td>
+                                    <td className="flex justify-around px-6 py-4">
+                                        <FaEdit
+                                            className="text-blue-500 cursor-pointer"
+                                        />
+                                        <MdDelete
+                                            size={18}
+                                            color="red"
+                                            className="cursor-pointer"
+                                        />
                                     </td>
                                 </tr>
                             ))}

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { BASEURL } from '../BASEURL';
+import { FaEdit } from 'react-icons/fa';
+import { MdDelete } from 'react-icons/md';
 
 const ContactAdmin = () => {
     const [data, setData] = useState(null);
@@ -30,7 +32,7 @@ const ContactAdmin = () => {
                                 <th scope="col" class="px-6 py-3">
                                     Date
                                 </th>
-                                <th scope="col" class="px-6 py-3">
+                                <th scope="col" class="px-6 py-3 text-center">
                                     Action
                                 </th>
                             </tr>
@@ -50,8 +52,15 @@ const ContactAdmin = () => {
                                     <td class="px-6 py-4">
                                         {contact.createdAt.split('T')[0]}
                                     </td>
-                                    <td class="px-6 py-4">
-
+                                    <td className="flex justify-around px-6 py-4">
+                                        <FaEdit
+                                            className="text-blue-500 cursor-pointer"
+                                        />
+                                        <MdDelete
+                                            size={18}
+                                            color="red"
+                                            className="cursor-pointer"
+                                        />
                                     </td>
                                 </tr>
                             ))}

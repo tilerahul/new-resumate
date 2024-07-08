@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { BASEURL } from '../BASEURL';
+import { FaEdit } from 'react-icons/fa';
+import { MdDelete } from 'react-icons/md';
 
 const ReviewsAdmin = () => {
     const [data, setData] = useState(null);
@@ -33,7 +35,7 @@ const ReviewsAdmin = () => {
                                 <th scope="col" class="px-6 py-3">
                                     Date
                                 </th>
-                                <th scope="col" class="px-6 py-3">
+                                <th scope="col" class="px-6 py-3 text-center">
                                     Action
                                 </th>
                             </tr>
@@ -55,6 +57,16 @@ const ReviewsAdmin = () => {
                                     </td>
                                     <td class="px-6 py-4">
                                     {review.createdAt.split('T')[0]}
+                                    </td>
+                                    <td className="flex justify-around px-6 py-4">
+                                        <FaEdit
+                                            className="text-blue-500 cursor-pointer"
+                                        />
+                                        <MdDelete
+                                            size={18}
+                                            color="red"
+                                            className="cursor-pointer"
+                                        />
                                     </td>
                                 </tr>
                             ))}
