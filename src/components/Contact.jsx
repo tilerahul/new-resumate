@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 import { useSelector } from 'react-redux';
 import { BASEURL } from './BASEURL';
 import Loader from './Loader/Loader';
+import Otp from './Resume/Section/Otp';
 
 function Contact() {
   const isLoggedIn = useSelector(state => state.login.isLoggedIn);

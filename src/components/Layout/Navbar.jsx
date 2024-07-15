@@ -222,7 +222,7 @@ function Navbar() {
                 Contact
               </NavLink>
             </li>
-            {isLoggedIn &&
+            {isLoggedIn && user.isAdmin &&
               <>
                 <li className="text-black">
                   <svg
@@ -248,7 +248,8 @@ function Navbar() {
                     Dashboard
                   </NavLink>
                 </li>
-              </>}
+              </>
+            }
           </ul>
           {!isLoggedIn && (
             <div>
