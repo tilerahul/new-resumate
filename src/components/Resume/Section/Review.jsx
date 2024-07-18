@@ -40,6 +40,7 @@ function Review() {
           Users Reviews
         </h3>
       </div>
+      
 
       {loading ? <Loader /> :
         <div className="mt-10 mx-4 mr-4  text-center  flex md:flex-row flex-wrap gap-3 justify-center">
@@ -69,7 +70,7 @@ function Review() {
             </div>
           ))}
           {/* </Slide> */}
-          
+
 
         </div>
       }
