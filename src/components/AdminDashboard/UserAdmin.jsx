@@ -36,7 +36,7 @@ const UserAdmin = () => {
                                 <th scope="col" className="px-6 py-3">Name</th>
                                 <th scope="col" className="px-6 py-3">Email</th>
                                 <th scope="col" className="px-6 py-3">Phone</th>
-                                <th scope="col" className="px-6 py-3">Join</th>
+                                <th scope="col" className="px-6 py-3">Join on</th>
                                 <th scope="col" className="px-6 py-3 text-center">Action</th>
                             </tr>
                         </thead>
