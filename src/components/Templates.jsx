@@ -19,7 +19,7 @@ const slideImages = [
   },
 ];
 
-function Templates({ setIsChange }) {
+function Templates({ setIsChange = () => false }) {
   const { setSetTemplete } = useContext(AppContext);
   const navigate = useNavigate();
   return (
