@@ -1,4 +1,4 @@
-import { createContext, useState, useRef } from "react";
+import { createContext, useState, useRef, useEffect } from "react";
 import { useReactToPrint } from "react-to-print";
 import toast from "react-hot-toast";
 
@@ -29,11 +29,45 @@ export const AppProvider = ({ children }) => {
     },
   });
 
+  useEffect(() => {
+    const handleBeforeUnload = (event) => {
+      localStorage.setItem('resumeDraft', JSON.stringify(resumeData));
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, [resumeData]);
+
+  useEffect(() => {
+    const savedData = localStorage.getItem('resumeDraft');
+    if (savedData) {
+      setResumeData(JSON.parse(savedData));
+    }
+  }, []);
+
+  const clearResume = () =>{
+    localStorage.removeItem('resumeDraft');
+    setResumeData({
+      BasicInfo: [],
+      Education: [],
+      Skills: [],
+      WorkExperience: [],
+      Project: [],
+      Achievement: [],
+      Certification: [],
+      Languages: [],
+      Other: [],
+    })
+  }
+
   const value = {
     section, setSection,
     resumeData, setResumeData,
     templete, setSetTemplete,
-    printHandler, compPDF
+    printHandler, compPDF, clearResume
   }
 
   return (

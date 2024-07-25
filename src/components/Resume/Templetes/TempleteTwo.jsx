@@ -6,7 +6,7 @@ import { MdEmail } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 const TempleteTwo = ({ setIsChange }) => {
-  const { resumeData, printHandler, compPDF } = useContext(AppContext);
+  const { resumeData, printHandler, compPDF, clearResume } = useContext(AppContext);
 
   const formatedDate = (date) => {
     const month = [
@@ -44,7 +44,14 @@ const TempleteTwo = ({ setIsChange }) => {
         >
           Change Templete
         </button>
-        <div className="border shadow-lg rounded  md:min-w-[650px] md:min-h-[900px]">
+        <button
+          type="button"
+          onClick={()=>clearResume()}
+          className="text-white bg-[#2CACD5] hover:bg-[rgb(103,176,200)] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+        >
+          Clear Resume
+        </button>
+        <div className="border shadow-lg rounded md:min-w-[650px] md:min-h-[900px]">
           <div
             className="bg-white w-full h-full rounded-lg  p-10 inline-block m-auto"
             ref={compPDF}
@@ -107,9 +114,9 @@ const TempleteTwo = ({ setIsChange }) => {
             {/* Summary section */}
             {resumeData.BasicInfo.objective && (
               <div className="pb-6">
-                <h2 className="text-lg font-semibold">Summary</h2>
+                <h2 className="text-md font-semibold">Summary</h2>
                 <div className="border-t-2 border-black"></div>
-                <p className="text-gray-800 text-justify">
+                <p className="text-gray-800 max-w-3xl text-justify">
                   {resumeData.BasicInfo.objective}
                 </p>
               </div>
@@ -118,7 +125,7 @@ const TempleteTwo = ({ setIsChange }) => {
             {/* Education Section */}
             {resumeData.Education[0] && (
               <div className="mb-6">
-                <h2 className="text-lg font-semibold">EDUCATION</h2>
+                <h2 className="text-md font-semibold">EDUCATION</h2>
                 <div className="border-t-2 border-black"></div>
                 {resumeData.Education.map((data, index) => (
                   <div key={index}>
@@ -141,7 +148,7 @@ const TempleteTwo = ({ setIsChange }) => {
             {/* skills section */}
             {resumeData.Skills[0] && (
               <div className="mb-6">
-                <h2 className="text-lg font-semibold">SKILLS</h2>
+                <h2 className="text-md font-semibold">SKILLS</h2>
                 <div className="border-t-2 border-black"></div>
                 <div className="flex gap-3">
                   {resumeData.Skills.map((skill) => (
@@ -159,7 +166,7 @@ const TempleteTwo = ({ setIsChange }) => {
             {/* Work Experience Section */}
             {resumeData.WorkExperience[0] && (
               <div className="mb-6">
-                <h2 className="text-lg font-semibold">WORK EXPERIENCE</h2>
+                <h2 className="text-md font-semibold">WORK EXPERIENCE</h2>
                 <div className="border-t-2 border-black"></div>
                 {resumeData.WorkExperience.map((data, index) => (
                   <div key={index} className="mb-4">
@@ -186,7 +193,7 @@ const TempleteTwo = ({ setIsChange }) => {
             {/* Project Section */}
             {resumeData.Project[0] && (
               <div className="mb-6">
-                <h2 className="text-lg font-semibold">PROJECTS</h2>
+                <h2 className="text-md font-semibold">PROJECTS</h2>
                 <div className="border-t-2 border-black"></div>
                 {resumeData.Project.map((data, index) => (
                   <div key={index}>
@@ -220,7 +227,7 @@ const TempleteTwo = ({ setIsChange }) => {
             {/* Achievement Section */}
             {resumeData.Achievement[0] && (
               <div className="mb-6">
-                <h2 className="text-lg font-semibold">KEY ACHIEVEMENTS</h2>
+                <h2 className="text-md font-semibold">KEY ACHIEVEMENTS</h2>
                 <div className="border-t-2 border-black"></div>
                 <ul className="list-disc pl-6 list-inside text-gray-600">
                   {resumeData.Achievement.map((data, index) => (
@@ -233,7 +240,7 @@ const TempleteTwo = ({ setIsChange }) => {
             {/* Certification Section */}
             {resumeData.Certification[0] && (
               <div className="mb-6">
-                <h2 className="text-lg font-semibold">CERTIFICATIONS</h2>
+                <h2 className="text-md font-semibold">CERTIFICATIONS</h2>
                 <div className="border-t-2 border-black"></div>
                 <ul className="list-disc pl-6 list-inside text-gray-600">
                   {resumeData.Certification.map((data, index) => (
@@ -246,7 +253,7 @@ const TempleteTwo = ({ setIsChange }) => {
             {/* Languages Section */}
             {resumeData.Languages[0] && (
               <div>
-                <h2 className="text-lg font-semibold">LANGUAGES</h2>
+                <h2 className="text-md font-semibold">LANGUAGES</h2>
                 <div className="border-t-2 border-black"></div>
                 <div className="flex gap-3">
                   {resumeData.Languages.map((data, index) => (
@@ -263,7 +270,7 @@ const TempleteTwo = ({ setIsChange }) => {
               <div>
                 {resumeData.Other.map((data, index) => (
                   <div className="mt-6" key={index}>
-                    <h2 className="text-lg font-semibold">{data.title}</h2>
+                    <h2 className="text-md font-semibold">{data.title}</h2>
                     <div className="border-t-2 border-black"></div>
                     <p className="text-gray-600">{data.description}</p>
                   </div>
