@@ -20,6 +20,7 @@ import TempleteTwo from './components/Resume/Templetes/TempleteTwo'
 import Faq from './components/faq/Faq';
 import AdminDashboard from './components/AdminDashboard/AdminDashboard';
 import ForgotPassword from './components/Auth/ForgotPassword';
+import Team from './components/about/Team';
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
           <Route path="/featurepath" element={<Feature />} />
           <Route path="/admindashboard" element={<AdminDashboard />} />
           <Route path="/forgotpassword" element={<ForgotPassword />} />
+          <Route path="/team" element={<Team />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
         <Footer/>
