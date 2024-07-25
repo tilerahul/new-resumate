@@ -189,7 +189,7 @@ const BasicInfo = () => {
             htmlFor="objective"
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           >
-            Your Objective
+            Your Summary
           </label>
           <div className="flex items-center">
             <textarea

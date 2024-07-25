@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { AppContext } from "../../../Context/appContext";
 
-const TempleteOne = ({setIsChange}) => {
+const TempleteOne = ({ setIsChange }) => {
 
     const { resumeData, printHandler, compPDF } = useContext(AppContext);
 
@@ -36,7 +36,7 @@ const TempleteOne = ({setIsChange}) => {
                 </button>
                 <button
                     type="button"
-                    onClick={()=>setIsChange(true)}
+                    onClick={() => setIsChange(true)}
                     className="text-white bg-[#2CACD5] hover:bg-[rgb(103,176,200)] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
                 >
                     Change Templete
@@ -100,12 +100,12 @@ const TempleteOne = ({setIsChange}) => {
                             <section class="my-4">
                                 <h2 class="text-md font-bold text-blue-500">SKILLS</h2>
                                 {resumeData.Skills.map((skill) => (
-                                    <p
+                                    <span
                                         key={skill}
-                                        className="text-gray-600 underline underline-offset-4"
+                                        className="text-gray-600 p-1 underline underline-offset-4"
                                     >
                                         {skill.skill}
-                                    </p>
+                                    </span>
                                 ))}
                             </section>
                         }
@@ -126,7 +126,11 @@ const TempleteOne = ({setIsChange}) => {
                                         </div>
                                         <ul class="list-disc list-inside">
                                             {exp.description &&
-                                                <li>{exp.description}</li>
+                                                <>
+                                                    {exp.description.trim().split('\n').map((line, index) => (
+                                                        <li className='pl-6 text-justify' key={index}>{line}</li>
+                                                    ))}
+                                                </>
                                             }
                                         </ul>
                                     </div>
@@ -144,7 +148,7 @@ const TempleteOne = ({setIsChange}) => {
                                         <>
                                             <div class="flex justify-between">
                                                 {pro.projectName &&
-                                                    <h3 class="font-bold">{pro.projectName} <a href="/" class="text-blue-600 underline font-bold">LINK</a></h3>
+                                                    <h3 class="font-bold">{pro.projectName} <Link to="/" class="text-blue-600 underline font-bold">LINK</Link></h3>
                                                 }
                                                 {pro.startDate &&
                                                     <p class="italic">{`(${formatedDate(pro.startDate)} - ${formatedDate(pro.completionDate)})`}</p>
@@ -152,7 +156,12 @@ const TempleteOne = ({setIsChange}) => {
                                             </div>
                                             {pro.description &&
                                                 <ul class="list-disc list-inside">
-                                                    <li>{pro.description}</li>
+                                                    {/* <li>{pro.description}</li> */}
+                                                    <>
+                                                        {pro.description.trim().split('\n').map((line, index) => (
+                                                            <li className='pl-6 text-justify' key={index}>{line}</li>
+                                                        ))}
+                                                    </>
                                                 </ul>
                                             }
                                         </>
@@ -186,7 +195,7 @@ const TempleteOne = ({setIsChange}) => {
                                 </ul>
                             </section>
                         }
-                        <div className="text-center text-slate-400 pt-2">resumate-resume.netlify.app</div>
+                        <div className="text-center text-slate-300 pt-2">resumate-resume.netlify.app</div>
                     </div>
                 </div>
             </div>

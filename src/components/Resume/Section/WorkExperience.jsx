@@ -163,7 +163,7 @@ const WorkExperience = () => {
               htmlFor="startDate"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
-              Start Month and Year
+              Start Date
             </label>
             <input
               type="month"
@@ -179,7 +179,7 @@ const WorkExperience = () => {
               htmlFor="completionDate"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
-              Completion Month and Date
+              Completion Date
             </label>
             <div className="flex items-center">
               <input

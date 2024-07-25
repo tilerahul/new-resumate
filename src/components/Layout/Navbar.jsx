@@ -33,7 +33,7 @@ function Navbar() {
 
   const logoutHandler = () => {
     dispatch(logout());
-    toast.success("Successfully Logout");
+    toast.success("You are now logged out !!");
     navigate("/");
   };
   useEffect(() => {
