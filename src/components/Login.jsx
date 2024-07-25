@@ -49,7 +49,7 @@ function Login() {
       const data = await response.json();
 
       if (response.ok) {
-        toast.success("Login Successful !!");
+        toast.success("You are logged in !!");
         dispatch(login(data.user))
         navigate('/');
       } else {

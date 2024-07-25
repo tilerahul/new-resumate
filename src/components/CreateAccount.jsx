@@ -19,6 +19,7 @@ function CreateAccount() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [otpField, setOtpField] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
 
   const navigate = useNavigate();
   const inputRefs = useRef(Array(5).fill(null));
@@ -30,7 +31,7 @@ function CreateAccount() {
 
   const handleOtpChange = (index, event) => {
     const value = event.target.value;
-    if (/^\d$/.test(value)) { // Ensure the input is a digit
+    if (/^\d$/.test(value)) {
       const newOtp = [...otp];
       newOtp[index] = value;
       setOtp(newOtp);
@@ -56,6 +57,11 @@ function CreateAccount() {
     e.preventDefault();
     setLoading(true);
     try {
+      if(!isChecked){
+        toast.error('Please accept terms and conditions.');
+        setLoading(false);
+        return;
+      }
       const response = await fetch(`${BASEURL}api/v1/auth/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -209,7 +215,7 @@ function CreateAccount() {
                     </div>
                     <div className="flex items-start">
                       <div className="flex items-center h-5">
-                        <input id="terms" aria-describedby="terms" type="checkbox" className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" required />
+                        <input id="terms" aria-describedby="terms" checked={isChecked} onChange={(e)=>setIsChecked(e.target.checked)} type="checkbox" className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" />
                       </div>
                       <div className="ml-3 text-sm">
                         <label htmlFor="terms" className="font-light text-gray-500 dark:text-gray-300">I accept the <Link className="font-medium text-primary-600 hover:underline dark:text-primary-500" to="#">Terms and Conditions</Link></label>
