@@ -3,10 +3,11 @@ import { AppContext } from "../../../Context/appContext";
 import { IoCall } from "react-icons/io5";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
+import { Link } from "react-router-dom";
 
-const TempleteTwo = ({setIsChange}) => {
+const TempleteTwo = ({ setIsChange }) => {
   const { resumeData, printHandler, compPDF } = useContext(AppContext);
-  
+
   const formatedDate = (date) => {
     const month = [
       "Jan",
@@ -30,22 +31,22 @@ const TempleteTwo = ({setIsChange}) => {
     <>
       <div className="mt-4 ml-4 md:ml-0 mr-4  md:mt-0 md:pt-0">
         <button
-          onClick={()=> printHandler()}
+          onClick={() => printHandler()}
           type="button"
           className="text-white bg-[#2CACD5] hover:bg-[rgb(103,176,200)] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
         >
           Download Your Resume
         </button>
         <button
-                    type="button"
-                    onClick={()=>setIsChange(true)}
-                    className="text-white bg-[#2CACD5] hover:bg-[rgb(103,176,200)] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-                >
-                    Change Templete
-                </button>
+          type="button"
+          onClick={() => setIsChange(true)}
+          className="text-white bg-[#2CACD5] hover:bg-[rgb(103,176,200)] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+        >
+          Change Templete
+        </button>
         <div className="border shadow-lg rounded  md:min-w-[650px] md:min-h-[900px]">
           <div
-            className="bg-white w-full h-full rounded-lg  p-5 inline-block m-auto"
+            className="bg-white w-full h-full rounded-lg  p-10 inline-block m-auto"
             ref={compPDF}
             style={{ widows: "595px" }}
           >
@@ -57,7 +58,7 @@ const TempleteTwo = ({setIsChange}) => {
                 </h1>
               )}
               {resumeData.BasicInfo.jobTitle && (
-                <p className="font-bold text-blue-700 text-xl">
+                <p className="font-bold text-[#2CACD5] text-xl">
                   {resumeData.BasicInfo.jobTitle}
                 </p>
               )}
@@ -103,12 +104,12 @@ const TempleteTwo = ({setIsChange}) => {
               </div>
             </div>
 
-            {/* objective section */}
+            {/* Summary section */}
             {resumeData.BasicInfo.objective && (
               <div className="pb-6">
-                <h2 className="text-lg font-semibold">OBJECTIVE</h2>
+                <h2 className="text-lg font-semibold">Summary</h2>
                 <div className="border-t-2 border-black"></div>
-                <p className="text-gray-800 font-semibold">
+                <p className="text-gray-800 text-justify">
                   {resumeData.BasicInfo.objective}
                 </p>
               </div>
@@ -169,7 +170,13 @@ const TempleteTwo = ({setIsChange}) => {
                       )} - ${formatedDate(data.completionDate)}`}</p>
                     </div>
                     <ul className="list-disc list-inside text-gray-600">
-                      <li>{data.description}</li>
+                      {data.description &&
+                        <>
+                          {data.description.trim().split('\n').map((line, index) => (
+                            <li className='pl-6 text-justify' key={index}>{line}</li>
+                          ))}
+                        </>
+                      }
                     </ul>
                   </div>
                 ))}
@@ -184,15 +191,26 @@ const TempleteTwo = ({setIsChange}) => {
                 {resumeData.Project.map((data, index) => (
                   <div key={index}>
                     <div className="flex justify-between">
-                      <p className="text-gray-800 mt-3 font-semibold">
-                        {data.projectName}
-                      </p>
-                      <p className="text-gray-600">{`${formatedDate(
-                        data.startDate
-                      )} - ${formatedDate(data.completionDate)}`}</p>
+                      {data.projectName &&
+                        <p className="text-gray-800 font-semibold">
+                          <h3 class="font-semibold">{data.projectName} <span>|</span> <Link to={data.link} target='_blank' class="text-blue-600 underline font-semibold">LINK</Link></h3>
+                        </p>
+                      }
+                      {data.startDate &&
+                        <p className="text-gray-600">{`${formatedDate(
+                          data.startDate
+                        )} - ${formatedDate(data.completionDate)}`}
+                        </p>
+                      }
                     </div>
                     <ul className="list-disc list-inside text-gray-600">
-                      <li>{data.description}</li>
+                      {data.description &&
+                        <>
+                          {data.description.trim().split('\n').map((line, index) => (
+                            <li className='pl-6 text-justify' key={index}>{line}</li>
+                          ))}
+                        </>
+                      }
                     </ul>
                   </div>
                 ))}
@@ -204,7 +222,7 @@ const TempleteTwo = ({setIsChange}) => {
               <div className="mb-6">
                 <h2 className="text-lg font-semibold">KEY ACHIEVEMENTS</h2>
                 <div className="border-t-2 border-black"></div>
-                <ul className="list-disc list-inside text-gray-600">
+                <ul className="list-disc pl-6 list-inside text-gray-600">
                   {resumeData.Achievement.map((data, index) => (
                     <li key={index}>{data.title}</li>
                   ))}
@@ -217,7 +235,7 @@ const TempleteTwo = ({setIsChange}) => {
               <div className="mb-6">
                 <h2 className="text-lg font-semibold">CERTIFICATIONS</h2>
                 <div className="border-t-2 border-black"></div>
-                <ul className="list-disc list-inside text-gray-600">
+                <ul className="list-disc pl-6 list-inside text-gray-600">
                   {resumeData.Certification.map((data, index) => (
                     <li key={index}>{data.title}</li>
                   ))}

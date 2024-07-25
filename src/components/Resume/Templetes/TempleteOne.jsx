@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { AppContext } from "../../../Context/appContext";
+import { Link } from 'react-router-dom';
 
 const TempleteOne = ({ setIsChange }) => {
 
@@ -27,20 +28,22 @@ const TempleteOne = ({ setIsChange }) => {
     return (
         <>
             <div className="mt-4 ml-4 md:ml-0 mr-4  md:mt-0 md:pt-0">
-                <button
-                    onClick={() => printHandler()}
-                    type="button"
-                    className="text-white bg-[#2CACD5] hover:bg-[rgb(103,176,200)] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-                >
-                    Download Your Resume
-                </button>
-                <button
-                    type="button"
-                    onClick={() => setIsChange(true)}
-                    className="text-white bg-[#2CACD5] hover:bg-[rgb(103,176,200)] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-                >
-                    Change Templete
-                </button>
+                <div>
+                    <button
+                        onClick={() => printHandler()}
+                        type="button"
+                        className="text-white bg-[#2CACD5] hover:bg-[rgb(103,176,200)] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                    >
+                        Download Your Resume
+                    </button>
+                    <button
+                        type="button"
+                        onClick={() => setIsChange(true)}
+                        className="text-white bg-[#2CACD5] hover:bg-[rgb(103,176,200)] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                    >
+                        Change Templete
+                    </button>
+                </div>
                 <div className="border shadow-lg rounded  md:min-w-[650px] md:min-h-[900px]">
                     <div
                         className="bg-white w-full h-full rounded-lg  p-12 inline-block m-auto"
@@ -49,7 +52,7 @@ const TempleteOne = ({ setIsChange }) => {
                     >
                         {/* Basic Information */}
                         {resumeData.BasicInfo &&
-                            <header class="text-center my-4">
+                            <header class="text-center my-2">
                                 {resumeData.BasicInfo.name && <h1 class="text-lg font-bold text-blue-500">{resumeData.BasicInfo.name}</h1>}
                                 <p className='text-sm'>
                                     {resumeData.BasicInfo.email && <span>{`${resumeData.BasicInfo.email} | `}</span>}
@@ -148,7 +151,7 @@ const TempleteOne = ({ setIsChange }) => {
                                         <>
                                             <div class="flex justify-between">
                                                 {pro.projectName &&
-                                                    <h3 class="font-bold">{pro.projectName} <Link to="/" class="text-blue-600 underline font-bold">LINK</Link></h3>
+                                                    <h3 class="font-bold">{pro.projectName} <span>|</span> <Link to={pro.link} target='_blank' class="text-blue-600 underline font-bold">LINK</Link></h3>
                                                 }
                                                 {pro.startDate &&
                                                     <p class="italic">{`(${formatedDate(pro.startDate)} - ${formatedDate(pro.completionDate)})`}</p>
