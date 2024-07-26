@@ -20,6 +20,7 @@ import ChangeTemplete from "./Templetes/ChangeTemplete";
 import { MdChangeCircle } from "react-icons/md";
 import ReviewForm from "../Resume/ReviewForm";
 import { VscFeedback } from "react-icons/vsc";
+import TempleteThree from "./Templetes/TempleteThree";
 
 const Resume = () => {
   const { section, setSection, templete } = useContext(AppContext);
@@ -193,6 +194,7 @@ const Resume = () => {
         <div className="pt-7 hidden md:block">
           {templete === 'One' && <TempleteOne setIsChange={setIsChange} />}
           {templete === 'Two' && <TempleteTwo setIsChange={setIsChange} />}
+          {templete === 'Three' && <TempleteThree setIsChange={setIsChange} />}
         </div>
       </div>
       <div className={isChange ? "fixed top-16" : "hidden"}>

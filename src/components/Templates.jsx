@@ -14,8 +14,8 @@ const slideImages = [
     templete: 'Two'
   },
   {
-    url: "cv_template4.png",
-    templete: 'One'
+    url: "resume_temp.jpg",
+    templete: 'Three'
   },
 ];
 
@@ -59,10 +59,10 @@ function Templates({ setIsChange = () => false }) {
         </div>
         <div className="flex items-center justify-center">
           <img
-            src="cv_template4.png"
+            src="resume_temp.jpg"
             alt="template"
             onClick={() => {
-              setSetTemplete('One')
+              setSetTemplete('Three')
               setIsChange(false)
               navigate('/resume')
             }}

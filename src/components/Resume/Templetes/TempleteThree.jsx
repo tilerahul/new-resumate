@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { AppContext } from "../../../Context/appContext";
 import { Link } from 'react-router-dom';
 
-const TempleteOne = ({ setIsChange }) => {
+const TempleteThree = ({ setIsChange }) => {
 
     const { resumeData, printHandler, compPDF, clearResume } = useContext(AppContext);
 
@@ -53,14 +53,14 @@ const TempleteOne = ({ setIsChange }) => {
                 </div>
                 <div className="border shadow-lg rounded  md:min-w-[650px] md:min-h-[900px]">
                     <div
-                        className="bg-white w-full h-full rounded-lg  p-12 inline-block m-auto"
+                        className="bg-white w-full h-full rounded-lg p-4 inline-block m-auto"
                         ref={compPDF}
                         style={{ widows: "595px" }}
                     >
                         {/* Basic Information */}
                         {resumeData.BasicInfo &&
                             <header class="text-center my-2">
-                                {resumeData.BasicInfo.name && <h1 class="text-lg font-bold text-blue-500">{resumeData.BasicInfo.name}</h1>}
+                                {resumeData.BasicInfo.name && <h1 class="text-lg font-bold">{resumeData.BasicInfo.name}</h1>}
                                 <p className='text-sm'>
                                     {resumeData.BasicInfo.email && <span>{`${resumeData.BasicInfo.email} | `}</span>}
                                     {resumeData.BasicInfo.phone && <span>{`${resumeData.BasicInfo.phone} | `}</span>}
@@ -68,10 +68,10 @@ const TempleteOne = ({ setIsChange }) => {
                                 </p>
                                 <div class="flex justify-center space-x-4 font-bold underline">
                                     {resumeData.BasicInfo.linkedin &&
-                                        <a href="https://www.linkedin.com/in/rahul-tile/" class="text-blue-600 text-sm">LinkedIn</a>
+                                        <a href="https://www.linkedin.com/in/rahul-tile/" class="text-sm">LinkedIn</a>
                                     }
                                     {resumeData.BasicInfo.github &&
-                                        <a href="https://github.com/tilerahul" class="text-blue-600 text-sm">GitHub</a>
+                                        <a href="https://github.com/tilerahul" class="text-sm">GitHub</a>
                                     }
                                 </div>
                             </header>
@@ -81,7 +81,7 @@ const TempleteOne = ({ setIsChange }) => {
                         {/* Summary */}
                         {resumeData.BasicInfo.objective &&
                             <section class="my-4">
-                                <h2 class="text-md font-bold text-blue-500">SUMMARY</h2>
+                                <h2 class="text-md font-bold px-2 bg-[#D1E4E2]">SUMMARY</h2>
                                 <p class="text-justify ml-8 max-w-3xl text-sm">{resumeData.BasicInfo.objective}</p>
                             </section>
                         }
@@ -90,7 +90,7 @@ const TempleteOne = ({ setIsChange }) => {
                         {/* Education */}
                         {resumeData.Education[0] &&
                             <section class="my-4">
-                                <h2 class="text-md font-bold text-blue-500">EDUCATION</h2>
+                                <h2 class="text-md font-bold  px-2 bg-[#D1E4E2]">EDUCATION</h2>
                                 <ul class="list-disc ml-12 text-sm">
                                     {resumeData.Education.map((edu, index) => (
                                         <li key={index}>
@@ -108,22 +108,24 @@ const TempleteOne = ({ setIsChange }) => {
                         {/* Skills  */}
                         {resumeData.Skills[0] &&
                             <section class="my-4">
-                                <h2 class="text-md font-bold text-blue-500">SKILLS</h2>
-                                {resumeData.Skills.map((skill) => (
-                                    <span
-                                        key={skill}
-                                        className="text-gray-600 p-1 underline underline-offset-4"
-                                    >
-                                        {skill.skill}
-                                    </span>
-                                ))}
+                                <h2 class="text-md font-bold px-2 bg-[#D1E4E2]">TECHNICAL SKILLS</h2>
+                                <div className="ml-8">
+                                    {resumeData.Skills.map((skill) => (
+                                        <span
+                                            key={skill}
+                                            className="text-gray-600 p-1 underline underline-offset-4"
+                                        >
+                                            {skill.skill}
+                                        </span>
+                                    ))}
+                                </div>
                             </section>
                         }
 
                         {/* Experience  */}
                         {resumeData.WorkExperience[0] &&
                             <section class="my-4">
-                                <h2 class="text-md font-bold text-blue-500">EXPERIENCE</h2>
+                                <h2 class="text-md font-bold px-2 bg-[#D1E4E2]">EXPERIENCE</h2>
                                 {resumeData.WorkExperience.map((exp, index) => (
                                     <div class="text-sm ml-8" key={index}>
                                         <div class="flex justify-between">
@@ -152,13 +154,13 @@ const TempleteOne = ({ setIsChange }) => {
                         {/* Academic Projects  */}
                         {resumeData.Project[0] &&
                             <section class="my-4">
-                                <h2 class="text-md font-bold text-blue-500">ACADEMIC PROJECTS</h2>
+                                <h2 class="text-md font-bold px-2 bg-[#D1E4E2]">ACADEMIC PROJECTS</h2>
                                 <div class="text-sm ml-8">
                                     {resumeData.Project.map((pro, index) => (
                                         <>
                                             <div class="flex justify-between">
                                                 {pro.projectName &&
-                                                    <h3 class="font-bold">{pro.projectName} <span>|</span> <Link to={pro.link} target='_blank' class="text-blue-600 underline font-bold">LINK</Link></h3>
+                                                    <h3 class="font-bold">{pro.projectName} <span>|</span> <Link to={pro.link} target='_blank' class="underline font-bold">LINK</Link></h3>
                                                 }
                                                 {pro.startDate &&
                                                     <p class="italic">{`(${formatedDate(pro.startDate)} - ${formatedDate(pro.completionDate)})`}</p>
@@ -176,7 +178,6 @@ const TempleteOne = ({ setIsChange }) => {
                                             }
                                         </>
                                     ))}
-
                                 </div>
                             </section>
                         }
@@ -184,7 +185,7 @@ const TempleteOne = ({ setIsChange }) => {
                         {/* Achievements / Position of Responsibility  */}
                         {resumeData.Achievement[0] &&
                             <section class="my-4">
-                                <h2 class="text-md font-bold text-blue-500">ACHIEVEMENTS / POSITION OF RESPONSIBILITY</h2>
+                                <h2 class="text-md font-bold px-2 bg-[#D1E4E2]">ACHIEVEMENTS / POSITION OF RESPONSIBILITY</h2>
                                 <ul class="text-sm list-disc list-inside ml-8">
                                     {resumeData.Achievement.map((ach, index) => (
                                         <li key={index}>{ach.title}</li>
@@ -196,7 +197,7 @@ const TempleteOne = ({ setIsChange }) => {
                         {/* Certification */}
                         {resumeData.Certification[0] &&
                             <section class="my-4">
-                                <h2 class="text-md font-bold text-blue-500">CERTIFICATION</h2>
+                                <h2 class="text-md font-bold px-2 bg-[#D1E4E2]">CERTIFICATION</h2>
                                 <ul class="text-sm list-disc list-inside ml-8">
                                     {resumeData.Certification.map((cer, index) => (
                                         <li>{cer.title}</li>
@@ -205,21 +206,23 @@ const TempleteOne = ({ setIsChange }) => {
                                 </ul>
                             </section>
                         }
-
                         {/* Languages  */}
                         {resumeData.Languages[0] &&
                             <section class="my-4">
-                                <h2 class="text-md font-bold text-blue-500">LANGUAGES</h2>
-                                {resumeData.Languages.map((lang) => (
-                                    <span
-                                        key={lang}
-                                        className="text-gray-600 p-1 underline underline-offset-4"
-                                    >
-                                        {lang.language}
-                                    </span>
-                                ))}
+                                <h2 class="text-md font-bold px-2 bg-[#D1E4E2]">LANGUAGES</h2>
+                                <div className="ml-8">
+                                    {resumeData.Languages.map((lang) => (
+                                        <span
+                                            key={lang}
+                                            className="text-gray-600 p-1 underline underline-offset-4"
+                                        >
+                                            {lang.language}
+                                        </span>
+                                    ))}
+                                </div>
                             </section>
                         }
+
                         <div className="text-center text-slate-300 pt-2">resumate-resume.netlify.app</div>
                     </div>
                 </div>
@@ -228,4 +231,4 @@ const TempleteOne = ({ setIsChange }) => {
     )
 }
 
-export default TempleteOne
+export default TempleteThree
