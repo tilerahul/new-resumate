@@ -43,6 +43,7 @@ const Skills = () => {
         Skills: [...prev.Skills, skillsData]
       }));
       toast.success("Skill saved successfully");
+      setSection('workExperience');
       clearForm();
     }
     
