@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import toast from "react-hot-toast";
-import { IoAddCircleSharp, IoPencil } from "react-icons/io5";
+import { IoAddCircleSharp } from "react-icons/io5";
 import { AppContext } from '../../../Context/appContext';
 import { RxCross2 } from "react-icons/rx";
 import { FaEdit } from "react-icons/fa";
