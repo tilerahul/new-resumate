@@ -34,9 +34,9 @@ function Templates({ setIsChange = () => false }) {
       <div className="hidden lg:grid grid-cols-1 ml-6 mr-6 md:grid-cols-3 gap-2">
         <div className="flex items-center justify-center">
           <img
-            src="cv_template5.jpg"
+            src="resume_temp_1_1.jpg"
             alt="template"
-            className="w-5/6 h-auto object-cover rounded-lg border border-gray-300 cursor-pointer transform transition duration-500 hover:scale-105"
+            className="w-3/4 h-auto object-cover rounded-lg border border-gray-300 cursor-pointer transform transition duration-500 hover:scale-105"
             onClick={() => {
               setSetTemplete('One')
               setIsChange(false)
@@ -46,7 +46,7 @@ function Templates({ setIsChange = () => false }) {
         </div>
         <div className="flex items-center justify-center">
           <img
-            src="cv_template2.png"
+            src="resume_temp_2_1.jpg"
             alt="template"
             className="w-3/4 h-auto object-cover rounded-lg border border-gray-300 cursor-pointer transform transition duration-500 hover:scale-105"
             onClick={() => {
@@ -59,7 +59,7 @@ function Templates({ setIsChange = () => false }) {
         </div>
         <div className="flex items-center justify-center">
           <img
-            src="resume_temp.jpg"
+            src="resume_temp_3_1.jpg"
             alt="template"
             onClick={() => {
               setSetTemplete('Three')

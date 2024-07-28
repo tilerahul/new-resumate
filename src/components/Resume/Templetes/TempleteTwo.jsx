@@ -150,14 +150,14 @@ const TempleteTwo = ({ setIsChange }) => {
               <div className="mb-6">
                 <h2 className="text-sm font-semibold">SKILLS</h2>
                 <div className="border-t-2 border-black"></div>
-                <div className="flex gap-3">
+                <div className="flex flex-wrap gap-3">
                   {resumeData.Skills.map((skill) => (
-                    <p
+                    <span
                       key={skill}
                       className="text-gray-600 underline underline-offset-4"
                     >
                       {skill.skill}
-                    </p>
+                    </span>
                   ))}
                 </div>
               </div>
