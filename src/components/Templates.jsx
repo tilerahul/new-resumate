@@ -6,15 +6,15 @@ import { useNavigate } from "react-router-dom";
 
 const slideImages = [
   {
-    url: "cv_template5.jpg",
+    url: "resume_temp_1_1.jpg",
     templete: 'One'
   },
   {
-    url: "cv_template2.png",
+    url: "resume_temp_2_1.jpg",
     templete: 'Two'
   },
   {
-    url: "resume_temp.jpg",
+    url: "resume_temp_3_1.jpg",
     templete: 'Three'
   },
 ];
