@@ -51,7 +51,7 @@ const TempleteOne = ({ setIsChange }) => {
                         Clear Resume
                     </button>
                 </div>
-                <div className="border shadow-lg rounded  md:min-w-[650px] md:min-h-[900px]">
+                <div className="border shadow-lg rounded lg:w-[8.27in] lg:h-auto  md:min-w-[650px] md:min-h-[900px]">
                     <div
                         className="bg-white w-full h-full rounded-lg  p-12 inline-block m-auto"
                         ref={compPDF}

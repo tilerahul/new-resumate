@@ -51,9 +51,9 @@ const TempleteThree = ({ setIsChange }) => {
                         Clear Resume
                     </button>
                 </div>
-                <div className="border shadow-lg rounded  md:min-w-[650px] md:min-h-[900px]">
+                <div className="border shadow-lg rounded  md:min-w-[650px] md:min-h-[900px] lg:w-[8.27in] lg:h-auto">
                     <div
-                        className="bg-white w-full h-full rounded-lg p-4 inline-block m-auto"
+                        className="bg-white w-full h-full rounded-lg p-8 inline-block m-auto"
                         ref={compPDF}
                         style={{ widows: "595px" }}
                     >

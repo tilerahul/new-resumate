@@ -51,7 +51,7 @@ const TempleteTwo = ({ setIsChange }) => {
         >
           Clear Resume
         </button>
-        <div className="border shadow-lg rounded md:min-w-[650px] md:min-h-[900px]">
+        <div className="border shadow-lg rounded md:min-w-[650px] md:min-h-[900px] lg:w-[8.27in] lg:h-auto">
           <div
             className="bg-white w-full h-full rounded-lg  p-10 inline-block m-auto"
             ref={compPDF}
@@ -125,7 +125,7 @@ const TempleteTwo = ({ setIsChange }) => {
             {/* Education Section */}
             {resumeData.Education[0] && (
               <div className="mb-6">
-                <h2 className="text-md font-semibold">EDUCATION</h2>
+                <h2 className="text-sm font-semibold">EDUCATION</h2>
                 <div className="border-t-2 border-black"></div>
                 {resumeData.Education.map((data, index) => (
                   <div key={index}>
@@ -148,7 +148,7 @@ const TempleteTwo = ({ setIsChange }) => {
             {/* skills section */}
             {resumeData.Skills[0] && (
               <div className="mb-6">
-                <h2 className="text-md font-semibold">SKILLS</h2>
+                <h2 className="text-sm font-semibold">SKILLS</h2>
                 <div className="border-t-2 border-black"></div>
                 <div className="flex gap-3">
                   {resumeData.Skills.map((skill) => (
@@ -166,7 +166,7 @@ const TempleteTwo = ({ setIsChange }) => {
             {/* Work Experience Section */}
             {resumeData.WorkExperience[0] && (
               <div className="mb-6">
-                <h2 className="text-md font-semibold">WORK EXPERIENCE</h2>
+                <h2 className="text-sm font-semibold">WORK EXPERIENCE</h2>
                 <div className="border-t-2 border-black"></div>
                 {resumeData.WorkExperience.map((data, index) => (
                   <div key={index} className="mb-4">
@@ -193,7 +193,7 @@ const TempleteTwo = ({ setIsChange }) => {
             {/* Project Section */}
             {resumeData.Project[0] && (
               <div className="mb-6">
-                <h2 className="text-md font-semibold">PROJECTS</h2>
+                <h2 className="text-sm font-semibold">PROJECTS</h2>
                 <div className="border-t-2 border-black"></div>
                 {resumeData.Project.map((data, index) => (
                   <div key={index}>
@@ -227,7 +227,7 @@ const TempleteTwo = ({ setIsChange }) => {
             {/* Achievement Section */}
             {resumeData.Achievement[0] && (
               <div className="mb-6">
-                <h2 className="text-md font-semibold">KEY ACHIEVEMENTS</h2>
+                <h2 className="text-sm font-semibold">KEY ACHIEVEMENTS</h2>
                 <div className="border-t-2 border-black"></div>
                 <ul className="list-disc pl-6 list-inside text-gray-600">
                   {resumeData.Achievement.map((data, index) => (
@@ -240,7 +240,7 @@ const TempleteTwo = ({ setIsChange }) => {
             {/* Certification Section */}
             {resumeData.Certification[0] && (
               <div className="mb-6">
-                <h2 className="text-md font-semibold">CERTIFICATIONS</h2>
+                <h2 className="text-sm font-semibold">CERTIFICATIONS</h2>
                 <div className="border-t-2 border-black"></div>
                 <ul className="list-disc pl-6 list-inside text-gray-600">
                   {resumeData.Certification.map((data, index) => (
@@ -253,7 +253,7 @@ const TempleteTwo = ({ setIsChange }) => {
             {/* Languages Section */}
             {resumeData.Languages[0] && (
               <div>
-                <h2 className="text-md font-semibold">LANGUAGES</h2>
+                <h2 className="text-sm font-semibold">LANGUAGES</h2>
                 <div className="border-t-2 border-black"></div>
                 <div className="flex gap-3">
                   {resumeData.Languages.map((data, index) => (
@@ -270,7 +270,7 @@ const TempleteTwo = ({ setIsChange }) => {
               <div>
                 {resumeData.Other.map((data, index) => (
                   <div className="mt-6" key={index}>
-                    <h2 className="text-md font-semibold">{data.title}</h2>
+                    <h2 className="text-sm font-semibold">{data.title}</h2>
                     <div className="border-t-2 border-black"></div>
                     <p className="text-gray-600">{data.description}</p>
                   </div>

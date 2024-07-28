@@ -45,7 +45,7 @@ const BasicInfo = () => {
   };
 
   return (
-    <div className="shadow-lg p-4">
+    <div className="shadow-lg p-4  min-w-[22rem]">
       <h3 className="font-bold py-3 text-xl">Basic information</h3>
       <form className="space-y-4 md:space-y-6" onSubmit={submitHandler}>
           <div>
