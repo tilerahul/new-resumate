@@ -2,13 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { BASEURL } from '../BASEURL';
 import { FaEdit } from 'react-icons/fa';
 import { MdDelete } from 'react-icons/md';
+import Loader from '../Loader/Loader'
 
 const UserAdmin = () => {
     const [data, setData] = useState(null);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         const fetchUsers = async () => {
             try {
+                setLoading(true);
                 const response = await fetch(`${BASEURL}api/v1/auth/getUsers`);
                 const result = await response.json();
                 const sortedData = result.sort((a, b) => {
@@ -17,7 +20,9 @@ const UserAdmin = () => {
                     return nameA.localeCompare(nameB);
                 });
                 setData(sortedData);
+                setLoading(false);
             } catch (error) {
+                setLoading(false);
                 console.error('Error fetching users:', error);
             }
         };
@@ -27,6 +32,7 @@ const UserAdmin = () => {
 
     return (
         <div className="w-[86vw] pt-4">
+            {loading ? <Loader/> : 
             <div className="overflow-x-auto shadow-md sm:rounded-lg">
                 {data && <div className='font-bold m-3 text-sky-600'>{`Total Users : ${data.length}`}</div>}
                 {data ? (
@@ -67,6 +73,7 @@ const UserAdmin = () => {
                     </div>
                 )}
             </div>
+            }
         </div>
     );
 };
