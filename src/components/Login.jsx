@@ -28,6 +28,7 @@ function Login() {
     const userExist = localStorage.getItem("user");
     if(userExist){
       dispatch(login(JSON.parse(userExist)));
+      alert('Our site is under maintenance. To ensure the best quality of your resume, please build it on a laptop or desktop.')
       navigate("/")
     }
   }, [])
@@ -49,9 +50,10 @@ function Login() {
       const data = await response.json();
 
       if (response.ok) {
-        toast.success("You are logged in !!");
         dispatch(login(data.user))
+        toast.success("You are logged in !!");
         navigate('/');
+        alert('Our site is under maintenance. To ensure the best quality of your resume, please build it on a laptop or desktop.')
       } else {
         toast.error(data.message);
       }

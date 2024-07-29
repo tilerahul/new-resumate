@@ -45,9 +45,9 @@ const Resume = () => {
   };
 
   return (
-    <>
+    <div className="flex justify-center items-center w-[100vw]">
       <div className="pt-0 py-16 flex gap-5">
-        <div className="flex flex-col item-center">
+        <div className="flex flex-col item-center ">
           <div className="md:hidden p-2 mt-7 ml-4 mr-0 pr-0">
             {!isOpen && <FaAnglesRight onClick={() => setIsOpen(true)} />}
             <Link to="/resume/resumePreview">
@@ -203,7 +203,7 @@ const Resume = () => {
       <div className={feedback ? "fixed top-16" : "hidden"}>
         <ReviewForm setFeedback={setFeedback} />
       </div>
-    </>
+    </div>
   );
 };
 
