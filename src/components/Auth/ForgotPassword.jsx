@@ -22,8 +22,35 @@ const ForgotPassword = () => {
         });
     };
 
+    const sendOTP = async () => {
+        setLoading(true);
+        try {
+          const response = await fetch(`${BASEURL}api/v1/otp/resetOTP`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email })
+          });
+          const responseData = await response.json();
+          setLoading(false);
+          if (responseData.success) {
+            toast.success(responseData.message);
+          } else {
+            toast.error(responseData.message);
+          }
+        } catch (error) {
+          setLoading(false);
+          toast.error('Something went wrong !!');
+        }
+    }
+
     const submitHandler = async (e) => {
         e.preventDefault();
+
+        // if(formData.password === formData.confirmPassword){
+        //     sendOTP();
+        // }else{
+        //     toast.error('Password and Confirm Password Does not match !!');
+        // }
         try {
             setLoading(true);
             const response = await fetch(`${BASEURL}api/v1/auth/forgotPassword`, {
