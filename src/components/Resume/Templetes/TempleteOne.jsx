@@ -222,7 +222,7 @@ const TempleteOne = ({ setIsChange }) => {
                                 ))}
                             </section>
                         }
-                        <div className="text-center text-slate-300 pt-2">resumate-resume.netlify.app</div>
+                        <div className="text-center text-slate-300">resumate-resume.netlify.app</div>
                     </div>
                 </div>
             </div>
