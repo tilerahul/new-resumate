@@ -109,14 +109,16 @@ const TempleteOne = ({ setIsChange }) => {
                         {resumeData.Skills[0] &&
                             <section class="my-4">
                                 <h2 class="text-md font-bold text-blue-500">SKILLS</h2>
-                                {resumeData.Skills.map((skill) => (
-                                    <span
-                                        key={skill}
-                                        className="text-gray-600 p-1 underline underline-offset-4"
-                                    >
-                                        {skill.skill}
-                                    </span>
-                                ))}
+                                <div className='ml-8 flex flex-wrap gap-x-4 gap-y-2'>
+                                    {resumeData.Skills.map((skill) => (
+                                        <div
+                                            key={skill}
+                                            className="text-gray-800 text-md underline underline-offset-4"
+                                        >
+                                            {skill.skill}
+                                        </div>
+                                    ))}
+                                </div>
                             </section>
                         }
 

@@ -109,14 +109,14 @@ const TempleteThree = ({ setIsChange }) => {
                         {resumeData.Skills[0] &&
                             <section class="my-4">
                                 <h2 class="text-md font-bold px-2 bg-[#D1E4E2]">TECHNICAL SKILLS</h2>
-                                <div className="ml-8">
+                                <div className="ml-8 flex flex-wrap gap-x-4 gap-y-2">
                                     {resumeData.Skills.map((skill) => (
-                                        <span
+                                        <div
                                             key={skill}
-                                            className="text-gray-600 p-1 underline underline-offset-4"
+                                            className="text-gray-600 underline underline-offset-4"
                                         >
                                             {skill.skill}
-                                        </span>
+                                        </div>
                                     ))}
                                 </div>
                             </section>
