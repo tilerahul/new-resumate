@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import JobDescription from "./JobDescription";
+
 function Blog() {
   return (
     <>
@@ -91,6 +93,7 @@ function Blog() {
           </div>
         </div>
       </div>
+      <JobDescription/>
     </>
   );
 }
