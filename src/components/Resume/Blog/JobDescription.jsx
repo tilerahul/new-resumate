@@ -7,7 +7,7 @@ const JobDescription = () => {
             <Title title='Job Description for Accenture' />
 
             <div className='flex flex-col items-center justify-center gap-8'>
-                <a href="#" class="block max-w-5xl p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                <div class="block max-w-5xl p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
 
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Associate Software Engineer (ASE)</h5>
                     <div><span className='font-bold'>Package Offer : </span><span>4.5 LPA</span></div>
@@ -21,8 +21,8 @@ const JobDescription = () => {
                         <p>Deliver code to time and quality expectations and participate in peer reviews</p>
                         <p>Take ownership of the successful implementation of the solution</p>
                     </div>
-                </a>
-                <a href="#" class="block max-w-5xl p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                </div>
+                <div class="block max-w-5xl p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
 
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Advanced Associate Software Engineer (AASE)</h5>
                     <div><span className='font-bold'>Package Offer : </span><span>6.5 LPA</span></div>
@@ -39,7 +39,7 @@ const JobDescription = () => {
                         <p>Individuals who can ramp up on existing solution/project and quickly contribute towards bug fixes</p>
                         <p>Take ownership of the successful implementation and performance of the solution</p>
                     </div>
-                </a>
+                </div>
             </div>
 
         </div>
