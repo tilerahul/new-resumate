@@ -1,5 +1,6 @@
 import TeamCard from "./TeamCard";
-import rahulImg from '../../assets/rahultile1.png'
+import rahulImg from '../../assets/Rahul_Tile.png'
+import ShivImg from "../../assets/ShivImg.jpg"
 
 const team = [
     {
@@ -7,18 +8,29 @@ const team = [
         position : 'Founder Resumate',
         college : 'Dr. Vithalrao Vikhe Patil College Of Engineering, Ahmednagar',
         img : rahulImg,
+        // img : "https://media.licdn.com/dms/image/v2/D4D35AQHnAy4dSY60Eg/profile-framedphoto-shrink_400_400/profile-framedphoto-shrink_400_400/0/1710211985665?e=1730649600&v=beta&t=bgoaltRNlqhX17rrJFEzHpMutxGE2sTv7JFeHOiM-ZU",
         github : 'https://github.com/tilerahul',
         linkedin : 'https://www.linkedin.com/in/rahul-tile/',
         insta : 'https://www.instagram.com/r_a_h_u_l_tile_/'
     },
     {
         name : 'Om Patil',
-        position : 'CO - Founder Resumate',
+        position : 'Co-Founder Resumate',
         college : 'Dr. Vithalrao Vikhe Patil College Of Engineering,  Ahmednagar',
         img : "https://t4.ftcdn.net/jpg/02/29/75/83/360_F_229758328_7x8jwCwjtBMmC6rgFzLFhZoEpLobB6L8.jpg",
         github : 'https://github.com/om2438164',
         linkedin : 'https://www.linkedin.com/in/patil-om/',
         insta : 'https://www.instagram.com/__patilom/'
+    },
+    {
+        name : 'Shivkanya Kakade',
+        position : 'Backend Developer',
+        college : 'Backend Developer / UI Developer at Yash Technologies, Pune',
+        img : ShivImg,
+        // img : "https://media.licdn.com/dms/image/v2/D5635AQGrtTdNFlz6DA/profile-framedphoto-shrink_400_400/profile-framedphoto-shrink_400_400/0/1726679088248?e=1730649600&v=beta&t=kk4C9BEGlseqDRKknQ7XblGZdHxqF6H4nZJ1tRKDC8Y",
+        github : 'https://github.com/shivkanyakakade',
+        linkedin : 'https://www.linkedin.com/in/shivkanya-kakade-501a20229/',
+        insta : 'https://www.instagram.com/'
     }
 ]
 
