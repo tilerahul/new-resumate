@@ -90,7 +90,7 @@ function Navbar() {
 
   return (
     <div className="w-[100%] bg-gray-100 sticky top-0 shadow-lg z-20">
-      <div className="bg-blue-500 w-11/12 ">
+      <div className="bg-blue-500 w-auto ">
         <nav className="relative px-4 py-4 flex justify-between items-center bg-gray-100  ">
           <Link className="text-3xl font-bold leading-none" to="/">
             <div
