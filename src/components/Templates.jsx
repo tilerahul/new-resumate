@@ -38,7 +38,7 @@ function Templates({ setIsChange = () => false }) {
             alt="template"
             className="w-3/4 h-auto object-cover rounded-lg border border-gray-300 cursor-pointer transform transition duration-500 hover:scale-105"
             onClick={() => {
-              setSetTemplete('One')
+              setSetTemplete('Two')
               setIsChange(false)
               navigate('/resume')
             }}
@@ -50,7 +50,7 @@ function Templates({ setIsChange = () => false }) {
             alt="template"
             className="w-3/4 h-auto object-cover rounded-lg border border-gray-300 cursor-pointer transform transition duration-500 hover:scale-105"
             onClick={() => {
-              setSetTemplete('Two')
+              setSetTemplete('One')
               setIsChange(false)
               navigate('/resume')
             }
